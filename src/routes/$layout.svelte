@@ -19,8 +19,9 @@
 </script>
 
 <script>
+  import Navbar from "../components/Navbar.svelte";
   export let menu;
 </script>
 
-<nav />
+<Navbar {menu} />
 <slot />
