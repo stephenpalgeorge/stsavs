@@ -1,4 +1,6 @@
 <script>
+  import Dropdown from "./Dropdown.svelte";
+  import { activeNavItem } from "../../stores/navigation.store.js";
   export let menu;
   console.log(menu);
 </script>
@@ -57,7 +59,8 @@
     text-decoration: underline;
   }
 
-  .menu-items li + li {
+  .menu-items li + li,
+  .menu-items li:not(:first-of-type) {
     margin-left: 3rem;
   }
 </style>
@@ -73,21 +76,17 @@
     {/if}
 
     <ul class="menu-items">
-      <li>
-        <a href="/sundays">Sundays</a>
-      </li>
-      <li>
-        <a href="/alpha">Alpha</a>
-      </li>
-      <li>
-        <a href="/our-story">Our Story</a>
-      </li>
-      <li>
-        <a href="/activities">Activities</a>
-      </li>
-      <li>
-        <a href="/get-in-touch">Get in touch</a>
-      </li>
+      {#each menu.items as item}
+        {#if item.__component === 'menu.menu-link'}
+          <li
+            on:click={() => ($activeNavItem = item.label)}
+            class:active={$activeNavItem === item.label}>
+            <a href="item.url">{item.label}</a>
+          </li>
+        {:else if item.__component === 'menu.menu-dropdown'}
+          <Dropdown id={item.id} label={item.label} children={item.children} />
+        {/if}
+      {/each}
     </ul>
   </div>
 
