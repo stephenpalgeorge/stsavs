@@ -19,7 +19,7 @@
 </script>
 
 <script>
-  import Navbar from "../components/Navigation/Navbar.svelte";
+  import Navbar from "$lib/Navigation/Navbar.svelte";
   export let menu;
 </script>
 

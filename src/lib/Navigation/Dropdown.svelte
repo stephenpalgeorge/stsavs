@@ -9,7 +9,10 @@
   export let children;
 
   function handleDropdown(itemId) {
-    if (label !== $activeNavItem) $activeNavItem = label;
+    // handle active nav item
+    if (label === $activeNavItem) $activeNavItem = null;
+    else $activeNavItem = label;
+    // handle dropdown toggle
     if (itemId === $selectedDropdown) $selectedDropdown = null;
     else $selectedDropdown = itemId;
   }
