@@ -28,7 +28,7 @@
   }
 
   li span {
-    color: #222;
+    color: var(--color-dark);
     text-decoration: none;
     font-size: 0.875rem;
     padding: 0.5rem;
@@ -38,13 +38,13 @@
   li span:hover,
   li span:focus {
     cursor: pointer;
-    background-color: rgba(76, 77, 98, 0.1);
+    background-color: var(--color-main--fade);
     text-decoration: underline;
   }
 
   li.active span {
-    background-color: rgba(76, 77, 98, 1);
-    color: #fff;
+    background-color: var(--color-main);
+    color: var(--color-light);
     text-decoration: underline;
   }
 </style>

@@ -12,9 +12,9 @@
     left: 50%;
     width: 10rem;
     transform: translateX(-50%);
-    background-color: rgba(76, 77, 98, 0.1);
-    border: 1px solid rgb(76, 77, 98);
-    box-shadow: 0 0.25rem 0.5rem 0 rgba(0, 0, 0, 0.24);
+    background-color: var(--color-main--fade);
+    border: 1px solid var(--color-main);
+    box-shadow: var(--shadow-base);
   }
 
   li {
@@ -33,7 +33,7 @@
     font-size: 1rem;
     font-weight: 400;
     text-transform: initial;
-    color: #222;
+    color: var(--color-dark);
     padding: 0.5rem;
     transition: background 0.2s ease;
   }

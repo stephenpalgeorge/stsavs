@@ -26,14 +26,6 @@
   console.log(data);
 </script>
 
-<style>
-  :global(*) {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-  }
-</style>
-
 <svelte:head>
   {#if data.metatags}
     <Metatags tags={data.metatags} />

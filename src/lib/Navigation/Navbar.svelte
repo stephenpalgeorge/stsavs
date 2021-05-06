@@ -9,11 +9,10 @@
 
 <style>
   nav {
-    --nav-height: 4rem;
     width: 100%;
     height: var(--nav-height);
-    background-color: #fff;
-    box-shadow: 0 0.25rem 0.5rem 0 rgba(0, 0, 0, 0.24);
+    background-color: var(--color-light);
+    box-shadow: var(--shadow-base);
   }
 
   .contents {
@@ -31,10 +30,10 @@
     margin-top: calc(var(--nav-height) / 2);
     width: 4.5rem;
     height: 4.5rem;
-    background-color: #fff;
-    border: 0.125rem solid #fff;
+    background-color: var(--color-light);
+    border: 0.125rem solid var(--color-light);
     border-radius: 50%;
-    box-shadow: 0 0.25rem 0.5rem 0 rgba(0, 0, 0, 0.24);
+    box-shadow: var(--shadow-base);
   }
 
   .contents img:hover {
@@ -61,7 +60,7 @@
   }
 
   .menu-items li a:hover {
-    background-color: rgba(76, 77, 98, 0.1);
+    background-color: var(--color-main--fade);
     text-decoration: underline;
   }
 
