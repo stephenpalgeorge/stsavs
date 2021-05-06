@@ -58,6 +58,10 @@
     background-color: var(--color-main);
   }
 
+  a[class*="red-theme"] {
+    background-color: var(--color-secondary);
+  }
+
   a[class*="outline"] {
     padding: 0.75rem 1rem;
     color: var(--color-light);
@@ -73,8 +77,13 @@
     background-color: var(--color-main--accent--fade);
   }
 
-  :global(a + a) {
-    margin-left: 4rem;
+  a[class*="outline-highlight"][class*="red"] {
+    border-color: var(--color-secondary--accent);
+    color: var(--color-secondary--accent);
+  }
+  a[class*="outline-highlight"][class*="red"]::after,
+  a[class*="outline-highlight"][class*="red"]::before {
+    background-color: var(--color-secondary--accent--fade);
   }
 </style>
 

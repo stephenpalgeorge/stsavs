@@ -6,9 +6,12 @@
   export let body = "";
   export let colorTheme = "";
   export let title = "";
+  export let pretitle = "";
   export let titleLevel = "h1";
 
-  const blockTitle = `<${titleLevel}>${title}</${titleLevel}>`;
+  const blockTitle = `<${titleLevel}>${
+    pretitle.length > 0 ? `<span>${pretitle}</span>` : ""
+  }${title}</${titleLevel}>`;
 </script>
 
 <style>
@@ -39,7 +42,6 @@
     width: 20rem;
     height: 20rem;
     border-radius: 50%;
-    background-color: #898aa333;
   }
 
   .mask::before {
@@ -54,6 +56,11 @@
     margin: 0 auto;
   }
 
+  :global(.text-block h1 span) {
+    font-family: var(--font-family--cursive);
+    margin-right: 0.5rem;
+  }
+
   .top-space {
     margin-top: 2rem;
   }
@@ -63,24 +70,46 @@
     isolation: isolate;
   }
 
+  :global(.theme--purple h1) {
+    position: absolute;
+    top: 0;
+    transform: translateY(-50%);
+    padding: 0.25rem 1rem;
+    background-color: var(--color-light);
+  }
+
   /* theming */
   .theme--purple {
     background-color: var(--color-main);
     color: var(--color-light);
   }
 
+  .theme--purple .mask::before,
+  .theme--purple .mask::after {
+    background-color: #898aa333;
+  }
+
+  .theme--red .mask::before,
+  .theme--red .mask::after {
+    background-color: #d76e6133;
+  }
+
+  .theme--red {
+    background-color: var(--color-secondary);
+    color: var(--color-light);
+  }
+
   :global(.theme--purple h1) {
-    position: absolute;
-    top: 0;
-    transform: translateY(-50%);
-    padding: 0.5rem 1rem;
-    background-color: var(--color-light);
     border: 1px solid var(--color-main);
     color: var(--color-main);
   }
 
-  .theme--purple * {
+  [class*="theme"] * {
     color: inherit;
+  }
+
+  :global(.actions a + a) {
+    margin-left: 4rem;
   }
 
   @media screen and (max-width: 767px) {

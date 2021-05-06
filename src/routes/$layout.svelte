@@ -50,6 +50,11 @@
     font-style: normal;
   }
 
+  @font-face {
+    font-family: "Jenna Sue";
+    src: url("../fonts/JennaSue.ttf") format("truetype");
+  }
+
   :root {
     /* layout */
     --nav-height: 4rem;
@@ -65,12 +70,17 @@
     --color-main--accent: rgba(220, 210, 0, 1);
     --color-main--accent--fade: rgba(220, 210, 0, 0.16);
     --color-main--fade: rgba(76, 77, 98, 0.1);
+    --color-secondary: rgba(205, 73, 56, 1);
+    --color-secondary--accent: rgba(115, 208, 220, 1);
+    --color-secondary--fade: rgba(205, 73, 56, 0.16);
+    --color-secondary--accent--fade: rgba(115, 208, 220, 0.32);
 
     /* fonts */
     --font-size--headings: 2.5rem;
     --font-size--subheadings: 1.8rem;
     --font-family--sans-serif: "Montserrat", sans-serif;
     --font-family--serif: "Museo Slab", serif;
+    --font-family--cursive: "Jenna Sue", cursive;
 
     /* shadows */
     --shadow-base: 0 0.25rem 0.5rem 0 rgba(0, 0, 0, 0.24);

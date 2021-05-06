@@ -11,6 +11,7 @@
         body={component.body}
         colorTheme={component.color_theme}
         title={component.title}
+        pretitle={component.pre_title}
         titleLevel={component.title_level} />
     {/if}
   {/each}
