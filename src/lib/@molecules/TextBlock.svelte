@@ -4,7 +4,7 @@
 
   export let actions = [];
   export let body = "";
-  export let colorTheme = "";
+  export let colorTheme = "purple";
   export let title = "";
   export let pretitle = "";
   export let titleLevel = "h1";
@@ -123,21 +123,28 @@
   <div class="mask" />
   <div>
     <!-- text content -->
-    {@html blockTitle}
-    <p class:top-space={titleLevel === 'h1'}>
-      {@html snarkdown(body)}
-    </p>
+    {#if title && title.length > 0}
+      {@html blockTitle}
+    {/if}
+
+    {#if body && body.length > 0}
+      <p class:top-space={titleLevel === 'h1'}>
+        {@html snarkdown(body)}
+      </p>
+    {/if}
 
     <!-- buttons -->
-    <div class="actions">
-      {#each actions as action}
-        <!-- print buttons here -->
-        <ButtonLink
-          label={action.label}
-          style={action.style}
-          theme={colorTheme}
-          url={action.url} />
-      {/each}
-    </div>
+    {#if actions && actions.length > 0}
+      <div class="actions">
+        {#each actions as action}
+          <!-- print buttons here -->
+          <ButtonLink
+            label={action.label}
+            style={action.style}
+            theme={colorTheme}
+            url={action.url} />
+        {/each}
+      </div>
+    {/if}
   </div>
 </section>

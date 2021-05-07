@@ -1,4 +1,5 @@
 <script>
+  import { base } from "$lib/config.js";
   import Dropdown from "./Dropdown.svelte";
   import {
     activeNavItem,
@@ -94,9 +95,7 @@
           $selectedDropdown = null;
         }}
         href="/">
-        <img
-          alt={menu.logo.alternativeText}
-          src="http://localhost:1337{menu.logo.url}" />
+        <img alt={menu.logo.alternativeText} src={base + menu.logo.url} />
       </a>
     {/if}
 

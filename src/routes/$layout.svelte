@@ -55,11 +55,16 @@
     src: url("../fonts/JennaSue.ttf") format("truetype");
   }
 
+  :global(::selection) {
+    background-color: rgba(76, 77, 98, 0.99);
+    color: var(--color-main--accent);
+  }
+
   :root {
     /* layout */
     --nav-height: 4rem;
     --content-width: 45rem;
-    --vertical-flow: 3rem;
+    --vertical-flow: 3.5rem;
     --horizontal-flow: 2rem;
 
     /* colours */

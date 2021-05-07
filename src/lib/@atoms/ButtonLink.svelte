@@ -87,4 +87,10 @@
   }
 </style>
 
-<a class={buttonStyle} href={url} rel={external ? 'external' : null}>{label}</a>
+<a
+  class={buttonStyle}
+  href={url}
+  rel={external ? 'external' : null}
+  target={external ? '_blank' : '_self'}>
+  {label}
+</a>

@@ -1,5 +1,6 @@
 <script>
-  import TextBlock from "../@molecules/TextBlock.svelte";
+  import SocialLinks from "$lib/@molecules/SocialLinks.svelte";
+  import TextBlock from "$lib/@molecules/TextBlock.svelte";
   export let components = [];
 </script>
 
@@ -13,6 +14,14 @@
         title={component.title}
         pretitle={component.pre_title}
         titleLevel={component.title_level} />
+    {/if}
+
+    {#if component.__component === 'molecules.social-links'}
+      <SocialLinks
+        title={component.title}
+        titleLevel={component.title_level}
+        links={component.Icons}
+        colorTheme={component.color_theme} />
     {/if}
   {/each}
 {/if}
