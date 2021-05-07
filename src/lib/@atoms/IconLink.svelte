@@ -12,7 +12,9 @@
   if (/https:\/\//.test(url)) external = true;
 </script>
 
-<style>
+<style lang="scss">
+  @use '../scss/variables' as var;
+
   .icon-link {
     height: 2.5rem;
     width: 2.5rem;
@@ -20,38 +22,32 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    &:hover {
+      animation: twist 0.6s;
+    }
+
+    img {
+      max-width: 60%;
+      max-height: 60%;
+    }
   }
 
-  .icon-link img {
-    max-width: 60%;
-    max-height: 60%;
-  }
+  :global {
+    .dark-theme--link, .purple-theme--link, .red-theme--link {
+      background-color: var.$color-light;
+    }
 
-  .icon-link:hover {
-    animation: twist 0.6s;
-  }
-
-  :global(.dark-theme--link, .purple-theme--link, .red-theme--link) {
-    background-color: var(--color-light);
-  }
-
-  :global(.light-theme--link) {
-    background-color: var(--color-dark);
+    .light-theme--link {
+      background-color: var.$color-dark;
+    }
   }
 
   @keyframes twist {
-    0% {
-      transform: rotate(0);
-    }
-    25% {
-      transform: rotate(12deg);
-    }
-    75% {
-      transform: rotate(-6deg);
-    }
-    100% {
-      transform: rotate(0);
-    }
+    0% { transform: rotate(0); }
+    25% { transform: rotate(12deg); }
+    75% { transform: rotate(-6deg); }
+    100% { transform: rotate(0); }
   }
 </style>
 

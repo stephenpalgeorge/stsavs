@@ -18,34 +18,35 @@
   }
 </script>
 
-<style>
+<style lang="scss">
+  @use '../scss/variables' as var;
+  
   li {
     position: relative;
     text-transform: uppercase;
     font-weight: 900;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: var.$font-family--sans-serif;
     margin-left: 3rem;
-  }
-
-  li span {
-    color: var(--color-dark);
-    text-decoration: none;
-    font-size: 0.875rem;
-    padding: 0.5rem;
-    transition: background 0.2s ease, color 0.2s ease;
-  }
-
-  li span:hover,
-  li span:focus {
-    cursor: pointer;
-    background-color: var(--color-main--fade);
-    text-decoration: underline;
-  }
-
-  li.active span {
-    background-color: var(--color-main);
-    color: var(--color-light);
-    text-decoration: underline;
+  
+    span {
+      color: var.$color-dark;
+      text-decoration: none;
+      font-size: 0.875rem;
+      padding: 0.5rem;
+      transition: background 0.2s ease, color 0.2s ease;
+      &:hover,
+      &:focus {
+        cursor: pointer;
+        background-color: var.$color-main--fade;
+        text-decoration: underline;
+      }
+    }
+  
+    &.active span {
+      background-color: var.$color-main;
+      color: var.$color-light;
+      text-decoration: underline;
+    }
   }
 </style>
 

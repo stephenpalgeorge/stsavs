@@ -1,6 +1,6 @@
 <script>
-  import SocialLinks from "$lib/@molecules/SocialLinks.svelte";
-  import TextBlock from "$lib/@molecules/TextBlock.svelte";
+  import SocialLinks from "$molecules/SocialLinks.svelte";
+  import TextBlock from "$molecules/TextBlock.svelte";
   export let components = [];
 </script>
 

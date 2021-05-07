@@ -1,6 +1,6 @@
 <script>
   import snarkdown from "snarkdown";
-  import ButtonLink from "../@atoms/ButtonLink.svelte";
+  import ButtonLink from "$atoms/ButtonLink.svelte";
 
   export let actions = [];
   export let body = "";
@@ -14,11 +14,23 @@
   }${title}</${titleLevel}>`;
 </script>
 
-<style>
+<style lang="scss">
+  @use '../scss/variables' as var;
+
   .text-block {
     position: relative;
     width: 100%;
-    padding: var(--vertical-flow) 0;
+    padding: var.$vertical-flow 0;
+
+    > div:not(.mask) {
+      width: 100%;
+      max-width: var.$content-width;
+      margin: 0 auto;
+
+      @media screen and (max-width: 767px) {
+        width: 90%;
+      }
+    }
   }
 
   .mask {
@@ -30,35 +42,52 @@
     left: 0;
     background: transparent;
     overflow: hidden;
+
+    &::after,
+    &::before {
+      position: absolute;
+      content: "";
+      top: 0;
+      right: 0;
+      transform: translate(50%, -40%);
+      width: 20rem;
+      height: 20rem;
+      border-radius: 50%;
+    }
+    &::before {
+      width: 24rem;
+      height: 24rem;
+      transform: translate(40%, 20%);
+    }
   }
 
-  .mask::after,
-  .mask::before {
-    position: absolute;
-    content: "";
-    top: 0;
-    right: 0;
-    transform: translate(50%, -40%);
-    width: 20rem;
-    height: 20rem;
-    border-radius: 50%;
-  }
+  :global {
+    .text-block h1 span {
+      font-family: var.$font-family--cursive;
+      margin-right: 0.5rem;
+    }
 
-  .mask::before {
-    width: 24rem;
-    height: 24rem;
-    transform: translate(40%, 20%);
-  }
+    .text-block h1 {
+      position: absolute;
+      top: 0;
+      transform: translateY(-50%);
+      padding: 0.25rem 1rem;
+      background-color: var.$color-light;
+    }
 
-  .text-block > div:not(.mask) {
-    width: 100%;
-    max-width: var(--content-width);
-    margin: 0 auto;
-  }
+    .theme--purple h1 {
+      border: 1px solid var.$color-main;
+      color: var.$color-main;
+    }
 
-  :global(.text-block h1 span) {
-    font-family: var(--font-family--cursive);
-    margin-right: 0.5rem;
+    .theme--red h1 {
+      border: 1px solid var.$color-secondary;
+      color: var.$color-secondary;
+    }
+
+    .actions a + a {
+      margin-left: 4rem;
+    }
   }
 
   .top-space {
@@ -70,52 +99,29 @@
     isolation: isolate;
   }
 
-  :global(.theme--purple h1) {
-    position: absolute;
-    top: 0;
-    transform: translateY(-50%);
-    padding: 0.25rem 1rem;
-    background-color: var(--color-light);
-  }
-
   /* theming */
-  .theme--purple {
-    background-color: var(--color-main);
-    color: var(--color-light);
-  }
-
-  .theme--purple .mask::before,
-  .theme--purple .mask::after {
-    background-color: #898aa333;
-  }
-
-  .theme--red .mask::before,
-  .theme--red .mask::after {
-    background-color: #d76e6133;
-  }
-
-  .theme--red {
-    background-color: var(--color-secondary);
-    color: var(--color-light);
-  }
-
-  :global(.theme--purple h1) {
-    border: 1px solid var(--color-main);
-    color: var(--color-main);
+  .theme {
+    &--purple {
+      background-color: var.$color-main;
+      color: var.$color-light;
+  
+      .mask::before, .mask::after {
+        background-color: #898aa333;
+      }
+    }
+  
+    &--red {
+      background-color: var.$color-secondary;
+      color: var.$color-light;
+    
+      .mask::before, .mask::after {
+        background-color: #d76e6133;
+      }
+    }
   }
 
   [class*="theme"] * {
     color: inherit;
-  }
-
-  :global(.actions a + a) {
-    margin-left: 4rem;
-  }
-
-  @media screen and (max-width: 767px) {
-    .text-block > div {
-      width: 90%;
-    }
   }
 </style>
 

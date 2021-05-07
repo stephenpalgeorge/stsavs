@@ -1,0 +1,30 @@
+@use 'fonts';
+
+/* layout */
+$nav-height: 4rem;
+$content-width: 45rem;
+$vertical-flow: 3.5rem;
+$horizontal-flow: 2rem;
+
+/* colours */
+$color-dark: #222;
+$color-light: #fff;
+$color-light--fade: rgba(255, 255, 255, 0.16);
+$color-main: rgba(76, 77, 98);
+$color-main--accent: rgba(220, 210, 0, 1);
+$color-main--accent--fade: rgba(220, 210, 0, 0.16);
+$color-main--fade: rgba(76, 77, 98, 0.1);
+$color-secondary: rgba(205, 73, 56, 1);
+$color-secondary--accent: rgba(115, 208, 220, 1);
+$color-secondary--fade: rgba(205, 73, 56, 0.16);
+$color-secondary--accent--fade: rgba(115, 208, 220, 0.32);
+
+/* fonts */
+$font-size--headings: 2.5rem;
+$font-size--subheadings: 1.8rem;
+$font-family--sans-serif: "Montserrat", sans-serif;
+$font-family--serif: "Museo Slab", serif;
+$font-family--cursive: "Jenna Sue", cursive;
+
+/* shadows */
+$shadow-base: 0 0.25rem 0.5rem 0 rgba(0, 0, 0, 0.24);

@@ -8,12 +8,14 @@
   export let menu;
 </script>
 
-<style>
+<style lang="scss">
+  @use '../scss/variables' as var;
+
   nav {
     width: 100%;
-    height: var(--nav-height);
-    background-color: var(--color-light);
-    box-shadow: var(--shadow-base);
+    height: var.$nav-height;
+    background-color: var.$color-light;
+    box-shadow: var.$shadow-base;
   }
 
   .contents {
@@ -25,44 +27,43 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
 
-  .contents img {
-    margin-top: calc(var(--nav-height) / 2);
-    width: 4.5rem;
-    height: 4.5rem;
-    background-color: var(--color-light);
-    border: 0.125rem solid var(--color-light);
-    border-radius: 50%;
-    box-shadow: var(--shadow-base);
-  }
+    img {
+      margin-top: var.$nav-height / 2;
+      width: 4.5rem;
+      height: 4.5rem;
+      background-color: var.$color-light;
+      border: 0.125rem solid var.$color-light;
+      border-radius: 50%;
+      box-shadow: var.$shadow-base;
 
-  .contents img:hover {
-    animation: twist 0.6s;
+      &:hover {
+        animation: twist 0.6s;
+      }
+    }
   }
 
   .menu-items {
     display: flex;
     list-style-type: none;
-  }
 
-  .menu-items li {
-    text-transform: uppercase;
-    font-weight: 900;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-  }
-
-  .menu-items li a {
-    color: #222;
-    text-decoration: none;
-    font-size: 0.875rem;
-    padding: 0.5rem;
-    transition: background 0.2s ease;
-  }
-
-  .menu-items li a:hover {
-    background-color: var(--color-main--fade);
-    text-decoration: underline;
+    li {
+      text-transform: uppercase;
+      font-weight: 900;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+  
+      a {
+        color: #222;
+        text-decoration: none;
+        font-size: 0.875rem;
+        padding: 0.5rem;
+        transition: background 0.2s ease;
+        &:hover {
+          background-color: var.$color-main--fade;
+          text-decoration: underline;
+        }
+      }
+    }
   }
 
   .menu-items li + li,
@@ -71,18 +72,10 @@
   }
 
   @keyframes twist {
-    0% {
-      transform: rotate(0);
-    }
-    25% {
-      transform: rotate(12deg);
-    }
-    75% {
-      transform: rotate(-6deg);
-    }
-    100% {
-      transform: rotate(0);
-    }
+    0% { transform: rotate(0); }
+    25% { transform: rotate(12deg); }
+    75% { transform: rotate(-6deg); }
+    100% { transform: rotate(0); }
   }
 </style>
 
