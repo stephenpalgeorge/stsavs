@@ -16,6 +16,7 @@
 
 <style lang="scss">
   @use '../scss/variables' as var;
+  @use '../scss/mixins' as m;
 
   .text-block {
     position: relative;
@@ -23,26 +24,12 @@
     padding: var.$vertical-flow 0;
 
     > div:not(.mask) {
-      width: 100%;
-      max-width: var.$content-width;
-      margin: 0 auto;
-
-      @media screen and (max-width: 767px) {
-        width: 90%;
-      }
+      @include m.layout-container;
     }
   }
 
   .mask {
-    position: absolute;
-    content: "";
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background: transparent;
-    overflow: hidden;
-
+    @include m.layout-mask;
     &::after,
     &::before {
       position: absolute;
@@ -75,15 +62,18 @@
       background-color: var.$color-light;
     }
 
-    .theme--purple h1 {
-      border: 1px solid var.$color-main;
-      color: var.$color-main;
+    .theme {
+      &--purple h1 {
+        border: 1px solid var.$color-main;
+        color: var.$color-main;
+      }
+      
+      &--red h1 {
+        border: 1px solid var.$color-secondary;
+        color: var.$color-secondary;
+      }
     }
 
-    .theme--red h1 {
-      border: 1px solid var.$color-secondary;
-      color: var.$color-secondary;
-    }
 
     .actions a + a {
       margin-left: 4rem;

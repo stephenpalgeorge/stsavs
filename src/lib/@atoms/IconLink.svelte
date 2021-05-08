@@ -13,6 +13,7 @@
 </script>
 
 <style lang="scss">
+  @use '../scss/animations' as animate;
   @use '../scss/variables' as var;
 
   .icon-link {
@@ -24,7 +25,7 @@
     align-items: center;
 
     &:hover {
-      animation: twist 0.6s;
+      animation: animate.$twist;
     }
 
     img {
@@ -41,13 +42,6 @@
     .light-theme--link {
       background-color: var.$color-dark;
     }
-  }
-
-  @keyframes twist {
-    0% { transform: rotate(0); }
-    25% { transform: rotate(12deg); }
-    75% { transform: rotate(-6deg); }
-    100% { transform: rotate(0); }
   }
 </style>
 

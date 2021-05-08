@@ -9,6 +9,7 @@
 </script>
 
 <style lang="scss">
+  @use '../scss/mixins' as m;
   @use '../scss/variables' as var;
 
   :global {
@@ -38,9 +39,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      width: 100%;
-      max-width: var.$content-width;
-      margin: 0 auto;
+      @include m.layout-container;
     }
   }
 

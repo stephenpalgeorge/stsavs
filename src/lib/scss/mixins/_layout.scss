@@ -1,0 +1,23 @@
+@use '../variables' as var;
+
+@mixin container($width: var.$content-width) {
+  width: 100%;
+  max-width: $width;
+  margin-left: auto;
+  margin-right: auto;
+  
+  @media screen and (max-width: 767px) {
+    width: 90%;
+  }
+}
+
+@mixin mask() {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  overflow: hidden;
+}

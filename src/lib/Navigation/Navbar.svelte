@@ -9,7 +9,9 @@
 </script>
 
 <style lang="scss">
+  @use '../scss/animations' as animate;
   @use '../scss/variables' as var;
+  @use '../scss/mixins' as m;
 
   nav {
     width: 100%;
@@ -29,16 +31,15 @@
     align-items: center;
 
     img {
+      @include m.shapes-circle($size: 4.5rem);
+
       margin-top: var.$nav-height / 2;
-      width: 4.5rem;
-      height: 4.5rem;
       background-color: var.$color-light;
       border: 0.125rem solid var.$color-light;
-      border-radius: 50%;
       box-shadow: var.$shadow-base;
 
       &:hover {
-        animation: twist 0.6s;
+        animation: animate.$twist;
       }
     }
   }
@@ -50,7 +51,7 @@
     li {
       text-transform: uppercase;
       font-weight: 900;
-      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-family: var.$font-family--sans-serif;
   
       a {
         color: #222;
@@ -69,13 +70,6 @@
   .menu-items li + li,
   .menu-items li:not(:first-of-type) {
     margin-left: 3rem;
-  }
-
-  @keyframes twist {
-    0% { transform: rotate(0); }
-    25% { transform: rotate(12deg); }
-    75% { transform: rotate(-6deg); }
-    100% { transform: rotate(0); }
   }
 </style>
 

@@ -1,0 +1,8 @@
+@keyframes twist-animation {
+  0% { transform: rotate(0); }
+  25% { transform: rotate(12deg); }
+  75% { transform: rotate(-6deg); }
+  100% { transform: rotate(0); }
+}
+
+$twist: twist-animation 0.6s;

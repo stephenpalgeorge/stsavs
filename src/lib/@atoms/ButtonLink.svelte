@@ -16,6 +16,7 @@
 </script>
 
 <style lang="scss">
+  @use '../scss/mixins' as m;
   @use '../scss/variables' as var;
 
   a {
@@ -53,40 +54,8 @@
       left: initial;
       right: -0.6rem;
     }
-  
-    &[class*="purple-theme"] {
-      background-color: var.$color-main;
-    }
 
-    &[class*="red-theme"] {
-      background-color: var.$color-secondary;
-    }
-    
-    &[class*="outline"] {
-      padding: 0.75rem 1rem;
-      color: var.$color-light;
-      border: 0.25rem solid var.$color-light;
-    }
-    
-    &[class*="outline-highlight"][class*="purple"] {
-      border-color: var.$color-main--accent;
-      color: var.$color-main--accent;
-    }
-    
-    &[class*="outline-highlight"][class*="purple"]::after,
-    &[class*="outline-highlight"][class*="purple"]::before {
-      background-color: var.$color-main--accent--fade;
-    }
-    
-    &[class*="outline-highlight"][class*="red"] {
-      border-color: var.$color-secondary--accent;
-      color: var.$color-secondary--accent;
-    }
-    
-    &[class*="outline-highlight"][class*="red"]::after,
-    &[class*="outline-highlight"][class*="red"]::before {
-      background-color: var.$color-secondary--accent--fade;
-    }
+    @include m.btn-button-style;
   }
 </style>
 
