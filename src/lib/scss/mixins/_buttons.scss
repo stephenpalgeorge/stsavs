@@ -10,6 +10,10 @@
     background-color: var.$color-secondary;
   }
 
+  &[class*="light-theme"] {
+    background-color: var.$color-light;
+  }
+
   // OUTLINE COLOUR THEMING
   &[class*="outline-highlight"][class*="purple"] {
     border-color: var.$color-main--accent;
@@ -29,6 +33,16 @@
   &[class*="outline-highlight"][class*="red"]::after,
   &[class*="outline-highlight"][class*="red"]::before {
     background-color: var.$color-secondary--accent--fade;
+  }
+  
+  &[class*="outline-highlight"][class^="light"] {
+    border-color: var.$color-secondary !important;
+    color: var.$color-secondary !important;
+  }
+
+  &[class*="outline-highlight"][class^="light"]::after,
+  &[class*="outline-highlight"][class^="light"]::before {
+    background-color: var.$color-secondary--fade;
   }
 
   // BASIC OUTLINE THEMING

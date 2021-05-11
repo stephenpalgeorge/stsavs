@@ -24,6 +24,7 @@
 </script>
 
 <style lang="scss">
+  @use '../lib/scss/elements' as el;
   @use '../lib/scss/variables' as var;
 
   :global {
@@ -58,6 +59,10 @@
       font-family: "Montserrat", sans-serif;
       font-size: 1rem;
       line-height: 1.75;
+    }
+
+    blockquote {
+      @include el.blockquote;
     }
   }
 </style>
