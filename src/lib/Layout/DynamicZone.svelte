@@ -2,6 +2,7 @@
   import SocialLinks from "$molecules/SocialLinks.svelte";
   import StoryBlock from '$molecules/StoryBlock.svelte';
   import TextBlock from "$molecules/TextBlock.svelte";
+  import VideoBlock from '$molecules/VideoBlock.svelte';
 
   export let components = [];
 </script>
@@ -38,6 +39,14 @@
         imagePos={component.image_position}
         imageFilter={component.use_filter}
         filterPos={[component.filter_position_x + '%', component.filter_position_y + '%']} />
+    {/if}
+
+    {#if component.__component === 'molecules.video-block'}
+      <VideoBlock
+        title={component.title}
+        titleLevel={component.title_level}
+        body={component.body}
+        videoId={component.video_id} />
     {/if}
   {/each}
 {/if}
