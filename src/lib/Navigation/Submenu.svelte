@@ -14,9 +14,10 @@
     left: 50%;
     width: 10rem;
     transform: translateX(-50%);
-    background-color: var.$color-main--fade;
+    background-color: var.$color-light;
     border: 1px solid var.$color-main;
     box-shadow: var.$shadow-base;
+    z-index: 1;
 
     li + li {
       margin-top: 0.5rem;
@@ -36,10 +37,11 @@
       text-transform: initial;
       color: var.$color-dark;
       padding: 0.5rem;
-      transition: background 0.2s ease;
+      transition: background 0.2s ease, color 0.2s ease;
       &:hover {
         text-decoration: underline;
-        background-color: rgba(255, 255, 255, 0.8);
+        background-color: var.$color-main--fade;
+        color: var.$color-dark;
       }
     }
   }

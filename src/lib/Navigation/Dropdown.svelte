@@ -1,8 +1,9 @@
 <script>
+  import { onMount } from 'svelte';
   import Submenu from "./Submenu.svelte";
   import {
     activeNavItem,
-    selectedDropdown
+    selectedDropdown,
   } from "../../stores/navigation.store.js";
   export let id;
   export let label;
@@ -16,6 +17,16 @@
     if (itemId === $selectedDropdown) $selectedDropdown = null;
     else $selectedDropdown = itemId;
   }
+
+  onMount(() => {
+    document.addEventListener('click', e => {
+      console.log(e);
+      if (!Array.from(e.target.classList).includes('nav-item') && !Array.from(e.target.classList).includes('nav-item--label')) {
+        $activeNavItem = null;
+        $selectedDropdown = null;
+      }
+    });
+  });
 </script>
 
 <style lang="scss">
@@ -50,8 +61,8 @@
   }
 </style>
 
-<li class:active={$activeNavItem === label}>
-  <span on:click={() => handleDropdown(id)}>{label}</span>
+<li class:active={$activeNavItem === label} class="nav-item">
+  <span class="nav-item--label" on:click={() => handleDropdown(id)}>{label}</span>
   {#if $selectedDropdown === id}
     <Submenu items={children} />
   {/if}

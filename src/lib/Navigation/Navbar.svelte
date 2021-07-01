@@ -94,7 +94,8 @@
               $activeNavItem = item.label;
               $selectedDropdown = null;
             }}
-            class:active={$activeNavItem === item.label}>
+            class:active={$activeNavItem === item.label}
+            class="nav-item">
             <a href="item.url">{item.label}</a>
           </li>
         {:else if item.__component === 'menu.menu-dropdown'}
