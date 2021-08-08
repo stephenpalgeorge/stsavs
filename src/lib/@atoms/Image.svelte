@@ -18,7 +18,6 @@
 </script>
 
 <style lang="scss">
-  @use '../scss/animations' as animate;
   @use '../scss/variables' as var;
 
   .image-container {

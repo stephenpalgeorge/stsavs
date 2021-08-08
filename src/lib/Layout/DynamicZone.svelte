@@ -1,4 +1,5 @@
 <script>
+  import GalleryBanner from '$molecules/GalleryBanner.svelte';
   import SocialLinks from "$molecules/SocialLinks.svelte";
   import StoryBlock from '$molecules/StoryBlock.svelte';
   import TextBlock from "$molecules/TextBlock.svelte";
@@ -9,7 +10,10 @@
 
 {#if components.length > 0}
   {#each components as component}
-    {#if component.__component === 'molecules.text-block'}
+    {#if component.__component === 'molecules.gallery-banner' }
+      <GalleryBanner bannerId={component.banner._id} colorTheme={component.color_theme} />
+
+    {:else if component.__component === 'molecules.text-block'}
       <TextBlock
         actions={component.actions}
         body={component.body}
@@ -17,17 +21,15 @@
         title={component.title}
         pretitle={component.pre_title}
         titleLevel={component.title_level} />
-    {/if}
 
-    {#if component.__component === 'molecules.social-links'}
+    {:else if component.__component === 'molecules.social-links'}
       <SocialLinks
         title={component.title}
         titleLevel={component.title_level}
         links={component.Icons}
         colorTheme={component.color_theme} />
-    {/if}
 
-    {#if component.__component === 'molecules.story-block'}
+    {:else if component.__component === 'molecules.story-block'}
       <StoryBlock
         title={component.title}
         titleLevel={component.title_level}
@@ -39,9 +41,8 @@
         imagePos={component.image_position}
         imageFilter={component.use_filter}
         filterPos={[component.filter_position_x + '%', component.filter_position_y + '%']} />
-    {/if}
 
-    {#if component.__component === 'molecules.video-block'}
+    {:else if component.__component === 'molecules.video-block'}
       <VideoBlock
         title={component.title}
         titleLevel={component.title_level}

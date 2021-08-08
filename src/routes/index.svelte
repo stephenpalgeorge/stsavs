@@ -36,6 +36,7 @@
   <header>
     {#if data.header && data.header.length > 0}
       <!-- banner here -->
+      <DynamicZone components={data.header} />
     {:else}
       <h1>{data.metatags.title || data.Title}</h1>
     {/if}
