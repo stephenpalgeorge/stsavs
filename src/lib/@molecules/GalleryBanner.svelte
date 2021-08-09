@@ -8,13 +8,28 @@
   export let colorTheme = "light";
 
   async function getBanner(id) {
-    const res = await window.fetch(`${base}/banners/${id}`);
+    const res = await fetch(`${base}/banners/${id}`);
     const data = await res.json();
     return data;
   };
 
   let banner = getBanner(bannerId);
 </script>
+
+<style lang="scss">
+  @use '../scss/mixins' as m;
+  @use '../scss/variables' as var;
+
+  .gallery-banner {
+    padding: var.$vertical-flow;
+  }
+
+  .cards-container {
+    display: flex;
+    justify-content: space-between;
+    @include m.layout-container;
+  }
+</style>
 
 <section class="gallery-banner">
   <div class="cards-container">

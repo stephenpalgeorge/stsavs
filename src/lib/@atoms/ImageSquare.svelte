@@ -6,12 +6,37 @@
   export let link = "";
 </script>
 
+<style lang="scss">
+  @use '../scss/variables' as var;
+  .image-square {
+    position: relative;
+    width: var.$banner-square-side;
+    padding-bottom: var.$banner-square-side;
+    height: 0;
+  }
+
+  .image-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 50% 25%;
+    }
+  }
+</style>
+
 <div class="image-square">
   {#if link.length > 0}
-    <a href={link}>
+    <a href={link} class="image-container">
       <img src={`${base + filePath}`} alt={altText} />
     </a>
   {:else}
-    <img src={`${base + filePath}`} alt={altText} />
+    <div class="image-container">
+      <img src={`${base + filePath}`} alt={altText} />
+    </div>
   {/if}
 </div>

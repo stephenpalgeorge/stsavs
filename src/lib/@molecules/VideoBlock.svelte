@@ -42,6 +42,7 @@
       a {
         font-family: var.$font-family--serif;
         font-weight: 800;
+        color: var.$color-secondary;
       }
     }
   }
