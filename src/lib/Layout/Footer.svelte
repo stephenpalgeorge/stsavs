@@ -8,16 +8,16 @@
   </div>
   <div class="social-icons-block">
     <ul class="social-icons">
-      <li><a href=""><img src="/static/facebook-logo--white.png" /></a></li>
-      <li><a href=""><img src="/static/instagram-logo--white.png" /></a></li>
-      <li><a href=""><img src="/static/twitter-logo--white.png" /></a></li>
-      <li><a href=""><img src="/static/youtube-logo--white.png" /></a></li>
-      <li><a href=""><img src="/static/soundcloud-logo--white.png" /></a></li>
+      <li><a href="https://www.facebook.com/StSavioursSunbury"><img src="/static/facebook-logo--white.png" /></a></li>
+      <li><a href="https://www.instagram.com/stsaviourssunbury/"><img src="/static/instagram-logo--white.png" /></a></li>
+      <li><a href="https://twitter.com/StSavsSunbury"><img src="/static/twitter-logo--white.png" /></a></li>
+      <li><a href="https://www.youtube.com/c/StSavioursSunburyOnline"><img src="/static/youtube-logo--white.png" /></a></li>
+      <li><a href="https://soundcloud.com/stsaviours"><img src="/static/soundcloud-logo--white.png" /></a></li>
     </ul>
   </div>
   <div class="additional-logos-block">
     <ul class="additional-logos">
-      <li><img src="/static/cofe-logo--white.png" /></li>
+      <li><a href="https://www.churchofengland.org/"><img src="/static/cofe-logo--white.png" /></a></li>
     </ul>
   </div>
   <div class="charity-info-block">
