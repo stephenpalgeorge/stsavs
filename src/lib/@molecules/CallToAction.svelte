@@ -22,11 +22,9 @@
       > div {
         $diameter: 15rem;
         position: absolute;
-        height: $diameter;
-        width: $diameter;
+        @include m.shapes-circle($diameter);
         top: $diameter * -.4;
         left: 50%;
-        border-radius: 50%;
         background-color: rgba(var.$color-light, .2);
       }
 
