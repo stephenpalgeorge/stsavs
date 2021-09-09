@@ -1,6 +1,6 @@
 <footer>
   <div class="address-block">
-    <img src="/static/women-of-faith--week-6.png" />
+    <img src="/static/st-savs-logo--white.png" />
     <div class="text-content">
       <h4>St Saviour's Sunbury</h4>
       <p>205 Vicarage Rd, Sunbury-on-Thames, TW16 7TP</p>
@@ -8,16 +8,16 @@
   </div>
   <div class="social-icons-block">
     <ul class="social-icons">
-      <li><img /></li>
-      <li><img /></li>
-      <li><img /></li>
-      <li><img /></li>
-      <li><img /></li>
+      <li><a href=""><img src="/static/facebook-logo--white.png" /></a></li>
+      <li><a href=""><img src="/static/instagram-logo--white.png" /></a></li>
+      <li><a href=""><img src="/static/twitter-logo--white.png" /></a></li>
+      <li><a href=""><img src="/static/youtube-logo--white.png" /></a></li>
+      <li><a href=""><img src="/static/soundcloud-logo--white.png" /></a></li>
     </ul>
   </div>
   <div class="additional-logos-block">
     <ul class="additional-logos">
-      <li><img /></li>
+      <li><img src="/static/cofe-logo--white.png" /></li>
     </ul>
   </div>
   <div class="charity-info-block">
