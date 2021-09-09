@@ -26,13 +26,20 @@
   console.log(data);
 </script>
 
+<style lang="scss">
+  @use '../lib/scss/variables' as var;
+  article.page {
+    padding-top: var.$nav-height;
+  }
+</style>
+
 <svelte:head>
   {#if data.metatags}
     <Metatags tags={data.metatags} />
   {/if}
 </svelte:head>
 
-<article>
+<article class="page">
   <header>
     {#if data.header && data.header.length > 0}
       <!-- banner here -->

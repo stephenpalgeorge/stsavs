@@ -20,6 +20,7 @@
 
 <script>
   import Navbar from "$lib/Navigation/Navbar.svelte";
+  import Footer from '$lib/Layout/Footer.svelte';
   export let menu;
 </script>
 
@@ -69,3 +70,4 @@
 
 <Navbar {menu} />
 <slot />
+<Footer />

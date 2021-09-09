@@ -1,4 +1,5 @@
 <script>
+  import CallToAction from '$molecules/CallToAction.svelte';
   import GalleryBanner from '$molecules/GalleryBanner.svelte';
   import SocialLinks from "$molecules/SocialLinks.svelte";
   import StoryBlock from '$molecules/StoryBlock.svelte';
@@ -12,6 +13,13 @@
   {#each components as component}
     {#if component.__component === 'molecules.gallery-banner' }
       <GalleryBanner bannerId={component.banner._id} colorTheme={component.color_theme} />
+
+    {:else if component.__component === 'molecules.call-to-action'}
+      <CallToAction
+        action={component.action}
+        body={component.body}
+        colorTheme={component.color_theme}
+        title={component.title} />
 
     {:else if component.__component === 'molecules.text-block'}
       <TextBlock

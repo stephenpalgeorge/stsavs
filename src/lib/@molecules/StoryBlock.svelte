@@ -24,9 +24,10 @@
 
   :global {
     .story-block {
-      h1, h2, h3 {
+      h1, h2, h3, h4, h5, h6 {
         margin-top: var.$vertical-flow;
         margin-bottom: 1.5rem;
+        text-transform: uppercase;
       }
 
       .image-container {

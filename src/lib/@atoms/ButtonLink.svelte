@@ -22,6 +22,7 @@
   a {
     position: relative;
     display: inline-block;
+    padding: .75rem 1rem;
     font-family: var.$font-family--serif;
     font-weight: 900;
     text-decoration: none;

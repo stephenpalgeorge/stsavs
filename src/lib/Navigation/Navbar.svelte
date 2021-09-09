@@ -14,6 +14,9 @@
   @use '../scss/mixins' as m;
 
   nav {
+    position: fixed;
+    top: 0;
+    z-index: 2;
     width: 100%;
     height: var.$nav-height;
     background-color: var.$color-light;
@@ -96,7 +99,7 @@
             }}
             class:active={$activeNavItem === item.label}
             class="nav-item">
-            <a href="item.url">{item.label}</a>
+            <a href={item.url}>{item.label}</a>
           </li>
         {:else if item.__component === 'menu.menu-dropdown'}
           <Dropdown id={item.id} label={item.label} children={item.children} />

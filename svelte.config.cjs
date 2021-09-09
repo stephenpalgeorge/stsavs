@@ -15,7 +15,10 @@ module.exports = {
           $molecules: path.resolve('./src/lib/@molecules'),
         }
       }
-    }
+    },
+    files: {
+      assets: 'static',
+    },
   },
   preprocess: preprocess
 };

@@ -18,31 +18,35 @@
   &[class*="outline-highlight"][class*="purple"] {
     border-color: var.$color-main--accent;
     color: var.$color-main--accent;
-  }
-  
-  &[class*="outline-highlight"][class*="purple"]::after,
-  &[class*="outline-highlight"][class*="purple"]::before {
-    background-color: var.$color-main--accent--fade;
+    &::after, &::before {
+      background-color: var.$color-main--accent--fade;
+    }
   }
 
   &[class*="outline-highlight"][class*="red"] {
     border-color: var.$color-secondary--accent;
     color: var.$color-secondary--accent;
-  }
-  
-  &[class*="outline-highlight"][class*="red"]::after,
-  &[class*="outline-highlight"][class*="red"]::before {
-    background-color: var.$color-secondary--accent--fade;
+    &::after, &::before {
+      background-color: var.$color-secondary--accent--fade;
+    }
   }
   
   &[class*="outline-highlight"][class^="light"] {
     border-color: var.$color-secondary !important;
     color: var.$color-secondary !important;
+    &::after, &::before {
+      background-color: var.$color-secondary--fade;
+    }
   }
 
-  &[class*="outline-highlight"][class^="light"]::after,
-  &[class*="outline-highlight"][class^="light"]::before {
-    background-color: var.$color-secondary--fade;
+  // FILL COLOUR THEMING
+  &[class*="fill-highlight"][class^="red"] {
+    border-color: var.$color-secondary--accent !important;
+    color: var.$color-dark !important;
+    background-color: var.$color-secondary--accent !important;
+    &::after, &::before {
+      background-color: var.$color-secondary--accent--fade;
+    }
   }
 
   // BASIC OUTLINE THEMING
@@ -50,6 +54,5 @@
     padding: 0.75rem 1rem;
     color: var.$color-light;
     border: 0.25rem solid var.$color-light;
-  }
-  
+  }  
 }
