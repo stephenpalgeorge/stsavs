@@ -22,8 +22,12 @@
       @include m.layout-container;
 
       > * + * {
-        margin-top: var.$vertical-flow / 2;
+        margin-top: var.$vertical-flow * .5;
       }
+    }
+
+    .header p {
+      margin-top: var.$vertical-flow * .25;
     }
 
     .video-wrapper {
@@ -56,7 +60,7 @@
 
 <section class="video-block">
   <div>
-    <div class="video-block__header">
+    <div class="header">
       {#if title && title.length > 0}
         {@html videoTitle}
       {/if}

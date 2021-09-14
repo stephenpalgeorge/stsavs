@@ -1,5 +1,4 @@
 <script>
-  import { onMount} from 'svelte';
   import { base } from '$lib/config.js';
   import ImageSquare from '$lib/@atoms/ImageSquare.svelte';
   import TextSquare from '$lib/@atoms/TextSquare.svelte';

@@ -13,12 +13,18 @@
     width: var.$banner-square-side;
     padding-bottom: var.$banner-square-side;
     height: 0;
+
+    transition: box-shadow .2s ease;
+    &:hover {
+      box-shadow: var.$shadow-base;
+    }
   }
 
   .image-container {
     position: absolute;
     width: 100%;
     height: 100%;
+    overflow: hidden;
 
     img {
       width: 100%;

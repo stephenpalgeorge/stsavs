@@ -1,0 +1,74 @@
+<script>
+  import { onMount } from 'svelte';
+  import { browser } from '$app/env';
+  import snarkdown from 'snarkdown';
+
+  export let title = "";
+  export let description = "";
+  export let lat = 51.420740;
+  export let lon = -0.419330;
+  export let zoom = 14;
+  
+  onMount(async () => {
+    if (browser) {
+      const L = await import('leaflet');
+      // create the map.
+      const map = L.map('map', { scrollWheelZoom: false, draggable: true }).setView([lat, lon], zoom);
+      // render the tiles.
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      }).addTo(map);
+      // add the marker.
+      L.marker([lat, lon]).addTo(map);
+      // remove the map when the component is destroyed.
+      return () => {
+        map.off();
+        map.remove();
+      }
+    }
+  });
+</script>
+
+<style lang="scss">
+  @use '../scss/variables' as var;
+  @use '../scss/mixins' as m;
+  @import 'leaflet/dist/leaflet.css';
+
+  .map-block {
+    padding: var.$vertical-flow 0;
+  }
+
+  section #map {
+    height: 300px;
+    box-shadow: var.$shadow-base;
+    border: .125rem solid var.$color-dark;
+  }
+
+  .map-block > div {
+    @include m.layout-container;
+    > * + * {
+      margin-top: var.$vertical-flow * .5;
+    }
+
+    .text-container p {
+      margin-top: var.$vertical-flow * .25;
+    }
+  }
+</style>
+
+<section class="map-block">
+  <div>
+    {#if title.length > 0 || description.length > 0}
+      <div class="text-container">
+        {#if title.length > 0}
+          <h2>{ title }</h2>
+        {/if}
+
+        {#if description.length > 0}
+          <p>{ @html snarkdown(description) }</p>
+        {/if}
+      </div>
+    {/if}
+    <div id="map"></div>
+  </div>
+</section>

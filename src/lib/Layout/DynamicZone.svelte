@@ -1,6 +1,7 @@
 <script>
   import CallToAction from '$molecules/CallToAction.svelte';
   import GalleryBanner from '$molecules/GalleryBanner.svelte';
+  import MapBlock from '$molecules/MapBlock.svelte';
   import SocialLinks from "$molecules/SocialLinks.svelte";
   import StoryBlock from '$molecules/StoryBlock.svelte';
   import TextBlock from "$molecules/TextBlock.svelte";
@@ -20,6 +21,14 @@
         body={component.body}
         colorTheme={component.color_theme}
         title={component.title} />
+
+    {:else if component.__component === 'molecules.map-block'}
+      <MapBlock
+        title={component.title}
+        description={component.body}
+        lat={component.latitude}
+        lon={component.longitude}
+        zoom={component.zoom_level} />
 
     {:else if component.__component === 'molecules.text-block'}
       <TextBlock
