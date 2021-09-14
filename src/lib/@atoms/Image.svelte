@@ -32,7 +32,7 @@
   }
 
   .filter {
-    border: .125rem solid var.$color-light;
+    border: .25rem solid var.$color-light;
     box-shadow: 0 .125rem .5rem 0 rgba(var.$color-dark, .24);
   }
 
@@ -44,7 +44,7 @@
       height: 65%;
       top: 50%;
       left: 50%;
-      border: .125rem solid var.$color-light;
+      border: .25rem solid var.$color-light;
       border-radius: 50%;
       backdrop-filter: grayscale(100%);
       transform: translate(-50%, -50%);

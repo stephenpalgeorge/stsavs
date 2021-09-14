@@ -41,7 +41,7 @@
   section #map {
     height: 300px;
     box-shadow: var.$shadow-base;
-    border: .125rem solid var.$color-dark;
+    border: .25rem solid var.$color-light;
   }
 
   .map-block > div {

@@ -34,6 +34,8 @@
       position: relative;
       padding-bottom: 56.25%;
       height: 0;
+      border: .25rem solid var.$color-main--fade;
+      box-shadow: var.$shadow-base;
 
       iframe {
         position: absolute;

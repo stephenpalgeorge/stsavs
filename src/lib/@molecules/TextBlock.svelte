@@ -85,8 +85,10 @@
   }
 
   .actions {
-    margin-top: 1.5rem;
     isolation: isolate;
+    p + & {
+      margin-top: 1.5rem;
+    }
   }
 
   /* theming */
