@@ -56,8 +56,9 @@
       right: -0.6rem;
     }
 
-    @include m.btn-button-style;
+    // @include m.btn-button-style;
   }
+  @include m.btn-button-theme;
 </style>
 
 <a

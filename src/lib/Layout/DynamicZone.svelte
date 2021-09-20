@@ -1,5 +1,6 @@
 <script>
   import CallToAction from '$molecules/CallToAction.svelte';
+  import CardBlock from '$organisms/CardBlock.svelte';
   import GalleryBanner from '$molecules/GalleryBanner.svelte';
   import MapBlock from '$molecules/MapBlock.svelte';
   import SocialLinks from "$molecules/SocialLinks.svelte";
@@ -21,6 +22,12 @@
         body={component.body}
         colorTheme={component.color_theme}
         title={component.title} />
+
+    {:else if component.__component === 'organisms.card-block'}
+      <CardBlock
+        title={component.title}
+        body={component.description}
+        cards={component.cards} />
 
     {:else if component.__component === 'molecules.map-block'}
       <MapBlock

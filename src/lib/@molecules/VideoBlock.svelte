@@ -15,6 +15,8 @@
 
   .video-block {
     background-color: var.$color-main--fade;
+    border-top: 1px solid var.$color-alt;
+    border-bottom: 1px solid var.$color-alt;
     > div {
       display: flex;
       flex-direction: column;

@@ -13,11 +13,12 @@ module.exports = {
         alias: {
           $atoms: path.resolve('./src/lib/@atoms'),
           $molecules: path.resolve('./src/lib/@molecules'),
+          $organisms: path.resolve('./src/lib/@organisms'),
         }
       }
     },
     files: {
-      assets: 'static',
+      assets: 'assets',
     },
   },
   preprocess: preprocess

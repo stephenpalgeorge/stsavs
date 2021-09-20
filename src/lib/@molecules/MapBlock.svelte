@@ -35,7 +35,25 @@
   @import 'leaflet/dist/leaflet.css';
 
   .map-block {
+    position: relative;
     padding: var.$vertical-flow 0;
+
+    .mask {
+      @include m.layout-mask;
+      &::after, &::before {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0;
+        transform: translate(-40%, -25%);
+        @include m.shapes-circle(14rem);
+        background-color: var.$color-main--fade;
+      }
+      &::before {
+        @include m.shapes-circle(10rem);
+        transform: translate(-50%, 50%);
+      }
+    }
   }
 
   section #map {
@@ -44,7 +62,7 @@
     border: .25rem solid var.$color-light;
   }
 
-  .map-block > div {
+  .map-block > div:not(.mask) {
     @include m.layout-container;
     > * + * {
       margin-top: var.$vertical-flow * .5;
@@ -57,6 +75,7 @@
 </style>
 
 <section class="map-block">
+  <div class="mask"></div>
   <div>
     {#if title.length > 0 || description.length > 0}
       <div class="text-container">

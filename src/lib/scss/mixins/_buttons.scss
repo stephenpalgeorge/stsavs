@@ -1,58 +1,173 @@
 @use '../variables' as var;
 
-@mixin button-style() {
-  // BASIC COLOUR THEMING
-  &[class*="purple-theme"] {
+// button classes can include `fill` or `outline` and the word `highlight`.
+// If `highlight` is not present, we assume another color.
+@mixin button-theme {
+  // PURPLE OUTLINE
+  a.purple-theme--outline {
+    border: .125rem solid var.$color-light;
+    color: var.$color-light;
     background-color: var.$color-main;
   }
 
-  &[class*="red-theme"] {
-    background-color: var.$color-secondary;
-  }
-
-  &[class*="light-theme"] {
-    background-color: var.$color-light;
-  }
-
-  // OUTLINE COLOUR THEMING
-  &[class*="outline-highlight"][class*="purple"] {
-    border-color: var.$color-main--accent;
+  // PURPLE HIGHLIGHT OUTLINE
+  a.purple-theme--outline-highlight {
+    border: .125rem solid var.$color-main--accent;
     color: var.$color-main--accent;
+    background-color: var.$color-main;
     &::after, &::before {
       background-color: var.$color-main--accent--fade;
     }
   }
 
-  &[class*="outline-highlight"][class*="red"] {
-    border-color: var.$color-secondary--accent;
+  // PURPLE FILL
+  a.purple-theme--fill {
+    color: var.$color-main;
+    background-color: var.$color-light;
+    &::after, &::before {
+      background-color: var.$color-light--fade;
+    }
+  }
+  
+  // PURPLE HIGHLIGHT FILL
+  a.purple-theme--fill-highlight {
+    color: var.$color-main;
+    background-color: var.$color-main--accent;
+    &::after, &::before {
+      background-color: var.$color-main--accent--fade;
+    }
+  }
+
+  // RED OUTLINE
+  a.red-theme--outline {
+    border: .125rem solid var.$color-light;
+    color: var.$color-light;
+    background-color: var.$color-secondary;
+    &::after, &::before {
+      background-color: var.$color-light--fade;
+    }
+  }
+
+  // RED HIGHLIGHT OUTLINE
+  a.red-theme--outline-highlight {
+    border: .125rem solid var.$color-secondary--accent;
     color: var.$color-secondary--accent;
+    background-color: var.$color-secondary;
     &::after, &::before {
       background-color: var.$color-secondary--accent--fade;
     }
   }
+
+  // RED FILL
+  a.red-theme--fill {
+    color: var.$color-dark;
+    background-color: var.$color-light;
+    &::after, &::before {
+      background-color: var.$color-light--fade;
+    }
+  }
+
+  // RED FILL HIGHLIGHT
+  a.red-theme--fill-highlight {
+    color: var.$color-dark;
+    background-color: var.$color-secondary--accent;
+    &::after, &::before {
+      background-color: var.$color-secondary--accent--fade;
+    }
+  }
+
+  // LIGHT OUTLINE
+  a.light-theme--outline {
+    color: var.$color-main;
+    border: .125rem solid var.$color-main;
+    background-color: var.$color-light;
+    &::after, &::before {
+      background-color: var.$color-main--fade;
+    }
+  }
   
-  &[class*="outline-highlight"][class^="light"] {
-    border-color: var.$color-secondary !important;
-    color: var.$color-secondary !important;
+  // LIGHT OUTLINE HIGHLIGHT
+  a.light-theme--outline-highlight {
+    color: var.$color-secondary;
+    border: .125rem solid var.$color-secondary;
+    background-color: var.$color-light;
     &::after, &::before {
       background-color: var.$color-secondary--fade;
     }
   }
 
-  // FILL COLOUR THEMING
-  &[class*="fill-highlight"][class^="red"] {
-    border-color: var.$color-secondary--accent !important;
-    color: var.$color-dark !important;
-    background-color: var.$color-secondary--accent !important;
+  // LIGHT FILL
+  a.light-theme--fill {
+    color: var.$color-light;
+    background-color: var.$color-main;
     &::after, &::before {
-      background-color: var.$color-secondary--accent--fade;
+      background-color: var.$color-main--fade;
     }
   }
-
-  // BASIC OUTLINE THEMING
-  &[class*="outline"] {
-    padding: 0.75rem 1rem;
+  
+  // LIGHT FILL HIGHLIGHT
+  a.light-theme--fill-highlight {
     color: var.$color-light;
-    border: 0.25rem solid var.$color-light;
-  }  
+    background-color: var.$color-secondary;
+    &::after, &::before {
+      background-color: var.$color-secondary--fade;
+    }
+  }
 }
+
+// @mixin button-style() {
+//   // BASIC COLOUR THEMING
+//   &[class*="purple-theme"] {
+//     background-color: var.$color-main;
+//   }
+
+//   &[class*="red-theme"] {
+//     background-color: var.$color-secondary;
+//   }
+
+//   &[class*="light-theme"] {
+//     background-color: var.$color-light;
+//   }
+
+//   // OUTLINE COLOUR THEMING
+//   &[class*="outline-highlight"][class*="purple"] {
+//     border-color: var.$color-main--accent;
+//     color: var.$color-main--accent;
+//     &::after, &::before {
+//       background-color: var.$color-main--accent--fade;
+//     }
+//   }
+
+//   &[class*="outline-highlight"][class*="red"] {
+//     border-color: var.$color-secondary--accent;
+//     color: var.$color-secondary--accent;
+//     &::after, &::before {
+//       background-color: var.$color-secondary--accent--fade;
+//     }
+//   }
+  
+//   &[class*="outline-highlight"][class^="light"] {
+//     border-color: var.$color-secondary !important;
+//     color: var.$color-secondary !important;
+//     &::after, &::before {
+//       background-color: var.$color-secondary--fade;
+//     }
+//   }
+
+//   // FILL COLOUR THEMING
+//   &[class*="fill-highlight"][class^="red"] {
+//     border-color: var.$color-secondary--accent !important;
+//     color: var.$color-dark !important;
+//     background-color: var.$color-secondary--accent !important;
+//     &::after, &::before {
+//       background-color: var.$color-secondary--accent--fade;
+//     }
+//   }
+
+//   // BASIC OUTLINE THEMING
+//   &[class*="outline"] {
+//     padding: 0.75rem 1rem;
+//     color: var.$color-light;
+//     border: 0.25rem solid var.$color-light;
+//   }
+// }

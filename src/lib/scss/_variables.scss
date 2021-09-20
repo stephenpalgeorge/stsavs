@@ -18,11 +18,13 @@ $color-secondary: rgba(205, 73, 56, 1);
 $color-secondary--accent: rgba(115, 208, 220, 1);
 $color-secondary--fade: rgba(205, 73, 56, 0.16);
 $color-secondary--accent--fade: rgba(115, 208, 220, 0.32);
+$color-alt: rgba(137, 138, 163, 1);
 
 /* fonts */
-$font-size--headings: 2.5rem;
-$font-size--subheadings: 1.8rem;
-$font-size--lead: 1.4rem;
+$font-size--base: 1rem;
+$font-size--headings: $font-size--base * 2.5;
+$font-size--subheadings: $font-size--base * 1.8;
+$font-size--lead: $font-size--base * 1.4;
 $font-family--sans-serif: "Montserrat", sans-serif;
 $font-family--serif: "Museo Slab", serif;
 $font-family--cursive: "Jenna Sue", cursive;
