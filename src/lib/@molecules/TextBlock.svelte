@@ -64,12 +64,12 @@
 
     .theme {
       &--purple h1 {
-        border: 1px solid var.$color-main;
+        border: .125rem solid var.$color-main;
         color: var.$color-main;
       }
       
       &--red h1 {
-        border: 1px solid var.$color-secondary;
+        border: .125rem solid var.$color-secondary;
         color: var.$color-secondary;
       }
     }
