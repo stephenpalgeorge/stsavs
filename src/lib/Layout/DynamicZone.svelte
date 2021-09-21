@@ -69,7 +69,6 @@
     {:else if component.__component === 'molecules.video-block'}
       <VideoBlock
         title={component.title}
-        titleLevel={component.title_level}
         body={component.body}
         videoId={component.video_id} />
     {/if}

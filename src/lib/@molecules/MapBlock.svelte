@@ -2,6 +2,7 @@
   import { onMount } from 'svelte';
   import { browser } from '$app/env';
   import snarkdown from 'snarkdown';
+  import BlockHeader from '$atoms/BlockHeader.svelte';
 
   export let title = "";
   export let description = "";
@@ -67,27 +68,13 @@
     > * + * {
       margin-top: var.$vertical-flow * .5;
     }
-
-    .text-container p {
-      margin-top: var.$vertical-flow * .25;
-    }
   }
 </style>
 
 <section class="map-block">
   <div class="mask"></div>
   <div>
-    {#if title.length > 0 || description.length > 0}
-      <div class="text-container">
-        {#if title.length > 0}
-          <h2>{ title }</h2>
-        {/if}
-
-        {#if description.length > 0}
-          <p>{ @html snarkdown(description) }</p>
-        {/if}
-      </div>
-    {/if}
+    <BlockHeader title={title} description={description} />
     <div id="map"></div>
   </div>
 </section>
