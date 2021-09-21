@@ -81,6 +81,14 @@
         background-color: var.$color-secondary;
       }
     }
+
+    &.theme--dark {
+      border-color: var.$color-dark;
+      h3 {
+        color: var.$color-light;
+        background-color: var.$color-dark;
+      }
+    }
   }
 
   :global {
@@ -89,6 +97,9 @@
     }
     .card.theme--red .mask::after {
       border-color: var.$color-secondary !important;
+    }
+    .card.theme--dark .mask::after {
+      border-color: var.$color-dark !important;
     }
 
     .card a {
@@ -109,6 +120,10 @@
 
       &.red-theme--outline {
         @include theme(var.$color-light, var.$color-secondary, var.$color-secondary--fade);
+      }
+
+      &.dark-theme--outline {
+        @include theme(var.$color-light, var.$color-dark, var.$color-dark--fade);
       }
     }
   }

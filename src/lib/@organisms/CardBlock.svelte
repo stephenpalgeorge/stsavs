@@ -1,5 +1,6 @@
 <script>
   import snarkdown from 'snarkdown';
+  import BlockHeader from '$atoms/BlockHeader.svelte';
   import Card from '$molecules/Card.svelte';
 
   export let title = "";
@@ -15,10 +16,6 @@
 
     > div {
       @include m.layout-container;
-    }
-
-    .header p {
-      margin-top: var.$vertical-flow * .25;
     }
 
     .cards-container {
@@ -37,15 +34,7 @@
 
 <section class="card-block">
   <div>
-    <div class="header">
-      {#if title.length > 0}
-        <h2>{title}</h2>
-      {/if}
-
-      {#if body.length > 0}
-        <p>{@html snarkdown(body)}</p>
-      {/if}
-    </div>
+    <BlockHeader title={title} description={body} />
     {#if cards.length > 0}
       <div class="cards-container">
         {#each cards as card}

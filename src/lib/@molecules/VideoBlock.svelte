@@ -1,12 +1,10 @@
 <script>
   import snarkdown from 'snarkdown';
+  import BlockHeader from '$atoms/BlockHeader.svelte';
 
   export let title = "";
-  export let titleLevel = "h2";
   export let body = "";
   export let videoId = "";
-
-  const videoTitle = `<${titleLevel}>${title}</${titleLevel}>`;
 </script>
 
 <style lang="scss">
@@ -28,10 +26,6 @@
       }
     }
 
-    .header p {
-      margin-top: var.$vertical-flow * .25;
-    }
-
     .video-wrapper {
       position: relative;
       padding-bottom: 56.25%;
@@ -49,10 +43,6 @@
   }
   :global {
     .video-block {
-      h1, h2, h3, h4, h5, h6 {
-        text-transform: uppercase;
-      }
-
       a {
         font-family: var.$font-family--serif;
         font-weight: 800;
@@ -64,16 +54,7 @@
 
 <section class="video-block">
   <div>
-    <div class="header">
-      {#if title && title.length > 0}
-        {@html videoTitle}
-      {/if}
-
-      {#if body && body.length > 0}
-        <p>{@html snarkdown(body)}</p>
-      {/if}
-    </div>
-
+    <BlockHeader title={title} description={body} />
     <div class="video-wrapper">
       <iframe
         src={`https://www.youtube-nocookie.com/embed/${videoId}?rel=0`}

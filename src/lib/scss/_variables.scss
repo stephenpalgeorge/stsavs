@@ -7,17 +7,18 @@ $vertical-flow: 3.5rem;
 $horizontal-flow: 2rem;
 
 /* colours */
-$color-dark: #222;
+$color-dark: rgb(34, 34, 34);
+$color-dark--fade: rgba($color-dark, .16);
 $color-light: #fff;
-$color-light--fade: rgba(255, 255, 255, 0.16);
+$color-light--fade: rgba($color-light, 0.16);
 $color-main: rgba(76, 77, 98);
 $color-main--accent: rgba(220, 210, 0, 1);
-$color-main--accent--fade: rgba(220, 210, 0, 0.16);
-$color-main--fade: rgba(76, 77, 98, 0.1);
+$color-main--accent--fade: rgba($color-main--accent, 0.16);
+$color-main--fade: rgba($color-main, 0.1);
 $color-secondary: rgba(205, 73, 56, 1);
 $color-secondary--accent: rgba(115, 208, 220, 1);
-$color-secondary--fade: rgba(205, 73, 56, 0.16);
-$color-secondary--accent--fade: rgba(115, 208, 220, 0.32);
+$color-secondary--fade: rgba($color-secondary, 0.16);
+$color-secondary--accent--fade: rgba($color-secondary--fade, 0.32);
 $color-alt: rgba(137, 138, 163, 1);
 
 /* fonts */
