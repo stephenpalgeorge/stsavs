@@ -22,7 +22,6 @@
 
   onMount(() => {
     document.addEventListener('click', e => {
-      console.log(e);
       if (!Array.from(e.target.classList).includes('nav-item') && !Array.from(e.target.classList).includes('nav-item--label')) {
         $activeNavItem = null;
         $selectedDropdown = null;
