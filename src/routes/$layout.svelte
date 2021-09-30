@@ -16,12 +16,19 @@
       error: new Error(`Could not load ${url}`)
     };
   }
+
 </script>
 
 <script>
+  import { browser } from '$app/env';
   import Navbar from "$lib/Navigation/Navbar.svelte";
+  import NavPanel from '$lib/Navigation/NavPanel.svelte';
   import Footer from '$lib/Layout/Footer.svelte';
   export let menu;
+  
+  let width;
+  if (browser) width = window.innerWidth;
+  else width = 0;
 </script>
 
 <style lang="scss">
@@ -68,6 +75,12 @@
   }
 </style>
 
-<Navbar {menu} />
-<slot />
-<Footer />
+<svelte:window bind:innerWidth={width} />
+
+{#if width > 767}
+  <Navbar {menu} />
+{:else}
+  <NavPanel {menu} />
+{/if}
+<!-- <slot />
+<Footer /> -->
