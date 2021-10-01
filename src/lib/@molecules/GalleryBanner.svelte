@@ -20,11 +20,12 @@
   @use '../scss/variables' as var;
 
   .gallery-banner {
-    padding: var.$vertical-flow;
+    padding: var.$vertical-flow 0;
   }
 
   .cards-container {
     display: flex;
+    flex-flow: row wrap;
     justify-content: space-between;
     @include m.layout-container;
   }

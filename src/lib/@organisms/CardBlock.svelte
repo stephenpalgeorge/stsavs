@@ -21,13 +21,29 @@
     .cards-container {
       display: flex;
       margin-top: var.$vertical-flow;
+      @media screen and (max-width: 767px) {
+        flex-direction: column;
+      }
     }
   }
 
   :global {
-    .card-block .cards-container > * + * {
-      margin-left: var.$horizontal-flow;
-      width: 100%;
+    .card-block .cards-container {
+      .card {
+        @media screen and (max-width: 767px) {
+          max-width: 100% !important;
+        }
+      }
+
+      > * + * {
+        margin-left: var.$horizontal-flow;
+        width: 100%;
+
+        @media screen and (max-width: 767px) {
+          margin-left: 0;
+          margin-top: var.$vertical-flow;
+        }
+      }
     }
   }
 </style>

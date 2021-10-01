@@ -35,6 +35,8 @@
     width: 100%;
     height: var.$nav-height;
     background-color: var.$color-light;
+    border-bottom: 1px solid var.$color-dark;
+    box-shadow: var.$shadow-base;
 
     .menu-icon {
       position: relative;

@@ -37,6 +37,10 @@
     font-weight: 900;
     font-family: var.$font-family--sans-serif;
     margin-left: 3rem;
+
+    @media screen and (min-width: 768px) and (max-width: 1023px) {
+      margin-left: 1.5rem;
+    }
   
     span {
       color: var.$color-dark;

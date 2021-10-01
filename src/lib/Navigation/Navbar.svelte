@@ -24,7 +24,7 @@
     background-color: var.$color-light;
     box-shadow: var.$shadow-base;
   }
-
+  
   .contents {
     position: relative;
     width: 100%;
@@ -34,6 +34,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @media screen and (min-width: 768px) and (max-width: 1023px) {
+      max-width: 45rem;
+    }
 
     img {
       @include m.shapes-circle($size: 4.5rem);
@@ -75,6 +79,9 @@
   .menu-items li + li,
   .menu-items li:not(:first-of-type) {
     margin-left: 3rem;
+    @media screen and (min-width: 768px) and (max-width: 1023px) {
+      margin-left: 1.5rem;
+    }
   }
 </style>
 
@@ -109,5 +116,4 @@
       {/each}
     </ul>
   </div>
-
 </nav>

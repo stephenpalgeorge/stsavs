@@ -36,6 +36,12 @@
   @use '../lib/scss/variables' as var;
 
   :global {
+    #svelte {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
     ::selection {
       background-color: rgba(76, 77, 98, 0.99);
       color: var.$color-main--accent;
@@ -82,5 +88,5 @@
 {:else}
   <NavPanel {menu} />
 {/if}
-<!-- <slot />
-<Footer /> -->
+<slot />
+<Footer />

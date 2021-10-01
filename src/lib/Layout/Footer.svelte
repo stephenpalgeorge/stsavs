@@ -3,6 +3,7 @@
   @use '../scss/mixins' as m;
 
   footer {
+    margin-top: auto;
     background-color: var.$color-dark;
 
     > div {

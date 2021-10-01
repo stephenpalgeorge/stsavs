@@ -33,6 +33,21 @@
       .image-container {
         width: 18rem;
         height: 18rem;
+
+        @media screen and (max-width: 767px) {
+          margin: 0 auto;
+        }
+      }
+
+      @media screen and (max-width: 767px) {
+        blockquote::before {
+          left: 0;
+          top: -6rem;
+        }
+
+        .actions a {
+          width: 100%;
+        }
       }
     }
   }
@@ -44,6 +59,10 @@
       align-items: flex-start;
       justify-content: space-between;
       @include m.layout-container;
+      
+      @media screen and (max-width: 767px) {
+        flex-direction: column;
+      }
 
       > * {
         flex-basis: 50%;
@@ -53,6 +72,10 @@
     .text-content {
       position: relative;
       border-top: 1px solid var.$color-dark;
+
+      @media screen and (max-width: 767px) {
+        margin-top: var.$vertical-flow;
+      }
 
       .mask {
         position: absolute;

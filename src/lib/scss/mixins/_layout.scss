@@ -11,7 +11,7 @@
   }
 }
 
-@mixin mask() {
+@mixin mask {
   position: absolute;
   content: "";
   top: 0;
@@ -20,4 +20,13 @@
   height: 100%;
   background: transparent;
   overflow: hidden;
+}
+
+@mixin visually-hidden {
+  position: absolute !important;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  width: 1px;
+  height: 1px;
+  word-wrap: normal;
 }
