@@ -35,7 +35,7 @@
     justify-content: space-between;
     align-items: center;
 
-    @media screen and (min-width: 768px) and (max-width: 1023px) {
+    @media screen and (min-width: var.$breakpoint-sm + 1) and (max-width: var.$breakpoint-lg) {
       max-width: 45rem;
     }
 
@@ -79,7 +79,7 @@
   .menu-items li + li,
   .menu-items li:not(:first-of-type) {
     margin-left: 3rem;
-    @media screen and (min-width: 768px) and (max-width: 1023px) {
+    @media screen and (min-width: var.$breakpoint-sm + 1) and (max-width: var.$breakpoint-lg) {
       margin-left: 1.5rem;
     }
   }

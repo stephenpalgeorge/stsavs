@@ -77,7 +77,7 @@
     justify-content: space-between;
     align-items: center;
 
-    @media screen and (max-width: 767px) {
+    @include m.layout-break(sm) {
       padding: 0 var.$horizontal-flow * .5;
     }
 

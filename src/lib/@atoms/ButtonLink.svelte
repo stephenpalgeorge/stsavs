@@ -27,10 +27,8 @@
     font-weight: 900;
     text-decoration: none;
 
-    @media screen and (max-width: 767px) {
-      padding: 1rem 1.5rem;
-    }
-
+    @include m.layout-break(sm) { padding: 1rem 1.5rem; }
+    
     &:hover {
       text-decoration: underline;
       &::after, &::before {
@@ -59,8 +57,6 @@
       left: initial;
       right: -0.6rem;
     }
-
-    // @include m.btn-button-style;
   }
   @include m.btn-button-theme;
 </style>

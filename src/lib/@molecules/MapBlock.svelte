@@ -52,7 +52,7 @@
         @include m.shapes-circle(14rem);
         background-color: var.$color-main--fade;
 
-        @media screen and (max-width: 1024px) {
+        @include m.layout-break(lg) {
           background-color: rgba(var.$color-main, .05);
         }
       }

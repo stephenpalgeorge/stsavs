@@ -6,6 +6,25 @@ $content-width: 45rem;
 $vertical-flow: 3.5rem;
 $horizontal-flow: 2rem;
 
+// from 0 up to 575 pixels.
+$breakpoint-xs: 575px;
+// from 576 up to 767 pixels.
+$breakpoint-sm: 767px;
+// from 768 up to 991 pixels.
+$breakpoint-md: 991px;
+// from 992 up to 1200 pixels.
+$breakpoint-lg: 1200px;
+// from 1201 up to 1400 pixels.
+$breakpoint-xl: 1400px;
+
+$breakpoints: (
+  xs: $breakpoint-xs,
+  sm: $breakpoint-sm,
+  md: $breakpoint-md,
+  lg: $breakpoint-lg,
+  xl: $breakpoint-xl,
+);
+
 /* colours */
 $color-dark: rgb(34, 34, 34);
 $color-dark--fade: rgba($color-dark, .16);

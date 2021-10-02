@@ -1,3 +1,4 @@
+@use 'sass:map';
 @use '../variables' as var;
 
 @mixin container($width: var.$content-width) {
@@ -6,7 +7,7 @@
   margin-left: auto;
   margin-right: auto;
   
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: var.$breakpoint-sm) {
     width: 90%;
   }
 }
@@ -29,4 +30,11 @@
   width: 1px;
   height: 1px;
   word-wrap: normal;
+}
+
+@mixin break($point) {
+  $width: map.get(var.$breakpoints, $point);
+  @media screen and (max-width: $width) {
+    @content;
+  }
 }

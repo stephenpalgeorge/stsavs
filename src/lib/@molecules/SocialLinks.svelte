@@ -15,9 +15,7 @@
   :global {
     .social-links h1, .social-links h2, .social-links h3 {
       text-transform: uppercase;
-      @media screen and (max-width: 767px) {
-        margin-bottom: var.$vertical-flow * .25;
-      }
+      @include m.layout-break(sm) { margin-bottom: var.$vertical-flow * .25; }
     }
 
     .links .icon-link + .icon-link {
@@ -44,7 +42,7 @@
       justify-content: space-between;
       @include m.layout-container;
 
-      @media screen and (max-width: 767px) {
+      @include m.layout-break(sm) {
         flex-direction: column;
         align-items: flex-start;
       }

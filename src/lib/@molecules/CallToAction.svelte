@@ -40,9 +40,7 @@
         transform-origin: center;
         transform: translate(-40%, -50%) rotate(45deg);
 
-        @media screen and (max-width: 921px) {
-          display: none;
-        }
+        @include m.layout-break(md) { display: none; }
       }
     }
 
@@ -57,7 +55,7 @@
         margin-left: 2rem;
       }
 
-      @media screen and (max-width: 767px) {
+      @include m.layout-break(md) {
         flex-direction: column;
         .action {
           margin-left: 0;

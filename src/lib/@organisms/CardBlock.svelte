@@ -21,7 +21,7 @@
     .cards-container {
       display: flex;
       margin-top: var.$vertical-flow;
-      @media screen and (max-width: 767px) {
+      @include m.layout-break(sm) {
         flex-direction: column;
       }
     }
@@ -30,7 +30,7 @@
   :global {
     .card-block .cards-container {
       .card {
-        @media screen and (max-width: 767px) {
+        @include m.layout-break(sm) {
           max-width: 100% !important;
         }
       }
@@ -39,7 +39,7 @@
         margin-left: var.$horizontal-flow;
         width: 100%;
 
-        @media screen and (max-width: 767px) {
+        @include m.layout-break(sm) {
           margin-left: 0;
           margin-top: var.$vertical-flow;
         }

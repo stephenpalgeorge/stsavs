@@ -14,12 +14,12 @@
     padding-bottom: var.$banner-square-side;
     height: 0;
 
-    @media screen and (max-width: 767px) {
+    @include m.layout-break(sm) {
       margin: var.$banner-card-gap 0;
       width: var.$banner-square-side * 2;
-      padding-bottom: var.$banner-square-side * 2;
+      padding-bottom: var.$banner-square-side * 2; 
     }
-
+    
     .text-container {
       position: absolute;
       width: 100%;

@@ -34,17 +34,17 @@
         width: 18rem;
         height: 18rem;
 
-        @media screen and (max-width: 767px) {
+        @include m.layout-break(sm) {
           margin: 0 auto;
         }
       }
 
-      @media screen and (max-width: 767px) {
+      @include m.layout-break(sm) {
         blockquote::before {
           left: 0;
           top: -6rem;
         }
-
+  
         .actions a {
           width: 100%;
         }
@@ -60,10 +60,8 @@
       justify-content: space-between;
       @include m.layout-container;
       
-      @media screen and (max-width: 767px) {
-        flex-direction: column;
-      }
-
+      @include m.layout-break(sm) { flex-direction: column; }
+      
       > * {
         flex-basis: 50%;
       }
@@ -73,10 +71,10 @@
       position: relative;
       border-top: 1px solid var.$color-dark;
 
-      @media screen and (max-width: 767px) {
+      @include m.layout-break(sm) {
         margin-top: var.$vertical-flow;
       }
-
+      
       .mask {
         position: absolute;
         content: "";

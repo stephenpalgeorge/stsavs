@@ -25,7 +25,7 @@
 
     > div:not(.mask) {
       @include m.layout-container;
-      @media screen and (max-width: 767px) {
+      @include m.layout-break(sm) {
         position: relative;
       }
     }
@@ -56,7 +56,7 @@
       font-family: var.$font-family--cursive;
       margin-right: 0.5rem;
 
-      @media screen and (max-width: 767px) {
+      @include m.layout-break(sm) {
         position: absolute;
         top: 0;
         transform: translateY(-100%);
@@ -71,7 +71,7 @@
       padding: 0.25rem 1rem;
       background-color: var.$color-light;
 
-      @media screen and (max-width: 767px) {
+      @include m.layout-break(sm) {
         width: fit-content;
         background: none;
         transform: translate(0);
@@ -83,7 +83,7 @@
       &--purple h1 {
         border: .125rem solid var.$color-main;
         color: var.$color-main;
-        @media screen and (max-width: 767px) {
+        @include m.layout-break(sm) {
           position: relative;
           border: none;
           color: var.$color-light;
@@ -93,7 +93,7 @@
       &--red h1 {
         border: .125rem solid var.$color-secondary;
         color: var.$color-secondary;
-        @media screen and (max-width: 767px) {
+        @include m.layout-break(sm) {
           position: relative;
           border: none;
           color: var.$color-light;
@@ -103,14 +103,14 @@
 
 
     .actions a {
-      @media screen and (max-width: 767px) {
+      @include m.layout-break(sm) {
         text-align: center;
       }
 
       + a {
         margin-left: 4rem;
 
-        @media screen and (max-width: 767px) {
+        @include m.layout-break(sm) {
           margin-left: 0;
           margin-top: 2rem;
         }
@@ -128,7 +128,7 @@
       margin-top: 1.5rem;
     }
 
-    @media screen and (max-width: 767px) {
+    @include m.layout-break(sm) {
       display: flex;
       flex-direction: column;
     }
