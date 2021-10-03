@@ -129,7 +129,9 @@
       focalPoint={focalPoint}
       black_white={imageBW} />
   </div>
-  <div class="content">
-    <h1>{title}</h1>
-  </div>
+  {#if title.length > 0}
+    <div class="content">
+      <h1>{title}</h1>
+    </div>
+  {/if}
 </section>
