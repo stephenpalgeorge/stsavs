@@ -54,11 +54,24 @@
 
   .story-block {
     > div {
+      position: relative;
       padding: var.$vertical-flow 0;
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
       @include m.layout-container;
+      border-bottom: 1px solid rgba(var.$color-dark, .24);
+      &::after {
+        position: absolute;
+        content: "//";
+        bottom: 0;
+        left: 50%;
+        padding: 0 1rem;
+        transform: translate(-50%, 50%);
+        font-size: var.$font-size--lead;
+        color: rgba(var.$color-dark, .24);
+        background-color: var.$color-light;
+      }
       
       @include m.layout-break(sm) { flex-direction: column; }
       

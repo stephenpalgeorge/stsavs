@@ -2,6 +2,7 @@
   import CallToAction from '$molecules/CallToAction.svelte';
   import CardBlock from '$organisms/CardBlock.svelte';
   import GalleryBanner from '$molecules/GalleryBanner.svelte';
+  import HeroBanner from '$molecules/HeroBanner.svelte';
   import MapBlock from '$molecules/MapBlock.svelte';
   import SocialLinks from "$molecules/SocialLinks.svelte";
   import StoryBlock from '$molecules/StoryBlock.svelte';
@@ -15,6 +16,14 @@
   {#each components as component}
     {#if component.__component === 'molecules.gallery-banner' }
       <GalleryBanner bannerId={component.banner._id} colorTheme={component.color_theme} />
+    
+    {:else if component.__component === 'molecules.hero-banner'}
+      <HeroBanner
+        title={component.Title}
+        image={component.image}
+        imageBW={component.black_white}
+        focalPoint={[component.focal_point_x + '%', component.focal_point_y + '%']}
+        colorTheme={component.color_theme} />
     
     {:else if component.__component === 'molecules.call-to-action'}
       <CallToAction
@@ -46,8 +55,8 @@
         pretitle={component.pre_title}
         titleLevel={component.title_level} />
         
-        {:else if component.__component === 'molecules.social-links'}
-        <SocialLinks
+    {:else if component.__component === 'molecules.social-links'}
+      <SocialLinks
         title={component.title}
         titleLevel={component.title_level}
         links={component.Icons}

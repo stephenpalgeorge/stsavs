@@ -31,7 +31,7 @@
   }
 </style>
 
-<section class="gallery-banner">
+<section class="gallery-banner" role="banner">
   <div class="cards-container">
     {#await banner}
       <p>Loading banner...</p>

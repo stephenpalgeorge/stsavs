@@ -105,7 +105,7 @@
     top: 0;
     right: -100%;
     z-index: 2;
-    width: 16rem;
+    width: 18rem;
     height: 100vh;
     max-width: 90%;
     padding: var.$vertical-flow * .5 var.$horizontal-flow * .5;
@@ -113,7 +113,7 @@
     background-color: var.$color-light;
     box-shadow: -.25rem 0 .75rem .25rem rgba(var.$color-dark, .32);
 
-    transition: right .4s ease-out;
+    transition: right .4s ease-out, box-shadow .4s ease-out;
     @keyframes button-fade {
       from { @extend %button-off-screen; }
       to {
@@ -122,6 +122,7 @@
       }
     }
     &.open {
+      box-shadow: -.25rem 0 .75rem .25rem rgba(var.$color-dark, .32), 0 0 1000px 1000px rgb(var.$color-dark, .48);
       right: 0;
       button {
         animation: button-fade .2s forwards;

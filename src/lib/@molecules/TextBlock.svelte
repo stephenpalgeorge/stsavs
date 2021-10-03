@@ -29,6 +29,10 @@
         position: relative;
       }
     }
+
+    h1 {
+      position: relative;
+    }
   }
 
   .mask {
@@ -54,50 +58,18 @@
   :global {
     .text-block h1 span {
       font-family: var.$font-family--cursive;
-      margin-right: 0.5rem;
-
-      @include m.layout-break(sm) {
-        position: absolute;
-        top: 0;
-        transform: translateY(-100%);
-        text-shadow: 0 0 .25rem var.$color-light;
-      }
-    }
-
-    .text-block h1 {
       position: absolute;
-      top: 0;
-      transform: translateY(-50%);
-      padding: 0.25rem 1rem;
-      background-color: var.$color-light;
-
-      @include m.layout-break(sm) {
-        width: fit-content;
-        background: none;
-        transform: translate(0);
-        padding: 0;
-      }
+      transform: translateY(-100%);
+      text-shadow: 0 0 .25rem var.$color-light;
     }
 
-    .theme {
+    .text-block.theme {
       &--purple h1 {
-        border: .125rem solid var.$color-main;
-        color: var.$color-main;
-        @include m.layout-break(sm) {
-          position: relative;
-          border: none;
-          color: var.$color-light;
-        }
+        color: var.$color-light;
       }
       
       &--red h1 {
-        border: .125rem solid var.$color-secondary;
-        color: var.$color-secondary;
-        @include m.layout-break(sm) {
-          position: relative;
-          border: none;
-          color: var.$color-light;
-        }
+        color: var.$color-light;
       }
     }
 
