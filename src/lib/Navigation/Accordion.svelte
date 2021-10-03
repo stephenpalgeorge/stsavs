@@ -1,10 +1,12 @@
 <script>
   import { onMount } from 'svelte';
-  import Submenu from "./Submenu.svelte";
+  import Submenu from './Submenu.svelte';
   import {
     activeNavItem,
     selectedDropdown,
-  } from "../../stores/navigation.store.js";
+    menuPaneOpen,
+  } from '../../stores/navigation.store.js';
+
   export let id;
   export let label;
   export let children;
@@ -30,35 +32,25 @@
 
 <style lang="scss">
   @use '../scss/variables' as var;
-  
   li {
-    position: relative;
-    text-transform: uppercase;
-    font-weight: 900;
-    font-family: var.$font-family--sans-serif;
-    margin-left: 3rem;
-
-    @media screen and (min-width: var.$breakpoint-sm + 1) and (max-width: var.$breakpoint-lg) {
-      margin-left: 1.5rem;
+    &:not(:first-of-type) {
+      margin-top: var.$vertical-flow * .5;
     }
-  
-    span {
-      color: var.$color-dark;
-      text-decoration: none;
-      font-size: 0.875rem;
-      padding: 0.5rem;
-      transition: background 0.2s ease, color 0.2s ease;
-      &:hover,
-      &:focus {
-        cursor: pointer;
-        background-color: var.$color-main--fade;
-        text-decoration: underline;
+    &:last-of-type {
+      margin-bottom: var.$vertical-flow * .5;
+    }
+
+    &.active {
+      font-weight: 900;
+      > span {
+        text-decoration: none;
       }
     }
-  
-    &.active span {
-      background-color: var.$color-main;
-      color: var.$color-light;
+    color: var.$color-secondary;
+    font-family: var.$font-family--serif;
+    font-size: var.$font-size--lead;
+    > span {
+      color: inherit;
       text-decoration: underline;
     }
   }
@@ -67,6 +59,6 @@
 <li class:active={$activeNavItem === label} class="nav-item">
   <span class="nav-item--label" on:click={() => handleDropdown(id)}>{label}</span>
   {#if $selectedDropdown === id}
-    <Submenu items={children} context="dropdown" />
+    <Submenu items={children} context="accordion" />
   {/if}
 </li>

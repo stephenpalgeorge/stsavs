@@ -15,19 +15,20 @@
   :global {
     .social-links h1, .social-links h2, .social-links h3 {
       text-transform: uppercase;
+      @include m.layout-break(sm) { margin-bottom: var.$vertical-flow * .25; }
     }
 
     .links .icon-link + .icon-link {
       margin-left: 2rem;
     }
 
-    .theme--dark h1, .theme--dark h2, .theme--dark h3, .theme--purple h1,
-    .theme--purple h2, .theme--purple h3, .theme--red h1, .theme--red h2,
-    .theme--red h3 {
+    .social-links.theme--dark h1, .social-links.theme--dark h2, .social-links.theme--dark h3,
+    .social-links.theme--purple h1, .social-links.theme--purple h2, .social-links.theme--purple h3,
+    .social-links.theme--red h1, .social-links.theme--red h2, .social-links.theme--red h3 {
       color: var.$color-light;
     }
 
-    .theme--light h1, .theme--light h2, .theme--light h3 {
+    .social-links.theme--light h1, .social-links.theme--light h2, .social-links.theme--light h3 {
       color: var.$color-dark;
     }
   }
@@ -40,6 +41,11 @@
       align-items: center;
       justify-content: space-between;
       @include m.layout-container;
+
+      @include m.layout-break(sm) {
+        flex-direction: column;
+        align-items: flex-start;
+      }
     }
   }
 

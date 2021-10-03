@@ -25,6 +25,13 @@
 
     > div:not(.mask) {
       @include m.layout-container;
+      @include m.layout-break(sm) {
+        position: relative;
+      }
+    }
+
+    h1 {
+      position: relative;
     }
   }
 
@@ -51,32 +58,35 @@
   :global {
     .text-block h1 span {
       font-family: var.$font-family--cursive;
-      margin-right: 0.5rem;
-    }
-
-    .text-block h1 {
       position: absolute;
-      top: 0;
-      transform: translateY(-50%);
-      padding: 0.25rem 1rem;
-      background-color: var.$color-light;
+      transform: translateY(-100%);
+      text-shadow: 0 0 .25rem var.$color-light;
     }
 
-    .theme {
+    .text-block.theme {
       &--purple h1 {
-        border: .125rem solid var.$color-main;
-        color: var.$color-main;
+        color: var.$color-light;
       }
       
       &--red h1 {
-        border: .125rem solid var.$color-secondary;
-        color: var.$color-secondary;
+        color: var.$color-light;
       }
     }
 
 
-    .actions a + a {
-      margin-left: 4rem;
+    .actions a {
+      @include m.layout-break(sm) {
+        text-align: center;
+      }
+
+      + a {
+        margin-left: 4rem;
+
+        @include m.layout-break(sm) {
+          margin-left: 0;
+          margin-top: 2rem;
+        }
+      }
     }
   }
 
@@ -88,6 +98,11 @@
     isolation: isolate;
     p + & {
       margin-top: 1.5rem;
+    }
+
+    @include m.layout-break(sm) {
+      display: flex;
+      flex-direction: column;
     }
   }
 

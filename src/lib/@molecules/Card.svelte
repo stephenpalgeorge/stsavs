@@ -41,6 +41,7 @@
 
     &-content {
       padding-top: var.$vertical-flow * .75;
+      padding-right: var.$horizontal-flow * .5;
       margin-bottom: var.$vertical-flow * .25;
       > * + * {
         margin-top: var.$vertical-flow * .125;

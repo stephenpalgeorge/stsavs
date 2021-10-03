@@ -33,18 +33,48 @@
       .image-container {
         width: 18rem;
         height: 18rem;
+
+        @include m.layout-break(sm) {
+          margin: 0 auto;
+        }
+      }
+
+      @include m.layout-break(sm) {
+        blockquote::before {
+          left: 0;
+          top: -6rem;
+        }
+  
+        .actions a {
+          width: 100%;
+        }
       }
     }
   }
 
   .story-block {
     > div {
+      position: relative;
       padding: var.$vertical-flow 0;
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
       @include m.layout-container;
-
+      border-bottom: 1px solid rgba(var.$color-dark, .24);
+      &::after {
+        position: absolute;
+        content: "//";
+        bottom: 0;
+        left: 50%;
+        padding: 0 1rem;
+        transform: translate(-50%, 50%);
+        font-size: var.$font-size--lead;
+        color: rgba(var.$color-dark, .24);
+        background-color: var.$color-light;
+      }
+      
+      @include m.layout-break(sm) { flex-direction: column; }
+      
       > * {
         flex-basis: 50%;
       }
@@ -54,6 +84,10 @@
       position: relative;
       border-top: 1px solid var.$color-dark;
 
+      @include m.layout-break(sm) {
+        margin-top: var.$vertical-flow;
+      }
+      
       .mask {
         position: absolute;
         content: "";

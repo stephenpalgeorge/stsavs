@@ -38,6 +38,8 @@
   .map-block {
     position: relative;
     padding: var.$vertical-flow 0;
+    border-top: 1px solid var.$color-dark--fade;
+    border-bottom: 1px solid var.$color-dark--fade;
 
     .mask {
       @include m.layout-mask;
@@ -49,6 +51,10 @@
         transform: translate(-40%, -25%);
         @include m.shapes-circle(14rem);
         background-color: var.$color-main--fade;
+
+        @include m.layout-break(lg) {
+          background-color: rgba(var.$color-main, .05);
+        }
       }
       &::before {
         @include m.shapes-circle(10rem);

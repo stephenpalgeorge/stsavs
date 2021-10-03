@@ -34,23 +34,33 @@
         width: 50%;
         height: 3rem;
         bottom: 0;
-        border: .125rem solid var.$color-light;
+        border: .25rem solid var.$color-light;
         border-right-width: 0;
         border-left-width: 0;
         transform-origin: center;
         transform: translate(-40%, -50%) rotate(45deg);
+
+        @include m.layout-break(md) { display: none; }
       }
     }
 
     > div:not(.mask) {
       @include m.layout-container;
       display: flex;
-
+      
       .action {
         flex-basis: 25%;
         flex-shrink: 0;
         min-width: 8rem;
         margin-left: 2rem;
+      }
+
+      @include m.layout-break(md) {
+        flex-direction: column;
+        .action {
+          margin-left: 0;
+          margin-top: 2rem;
+        }
       }
     }
 

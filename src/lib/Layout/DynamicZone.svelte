@@ -2,6 +2,7 @@
   import CallToAction from '$molecules/CallToAction.svelte';
   import CardBlock from '$organisms/CardBlock.svelte';
   import GalleryBanner from '$molecules/GalleryBanner.svelte';
+  import HeroBanner from '$molecules/HeroBanner.svelte';
   import MapBlock from '$molecules/MapBlock.svelte';
   import SocialLinks from "$molecules/SocialLinks.svelte";
   import StoryBlock from '$molecules/StoryBlock.svelte';
@@ -15,20 +16,28 @@
   {#each components as component}
     {#if component.__component === 'molecules.gallery-banner' }
       <GalleryBanner bannerId={component.banner._id} colorTheme={component.color_theme} />
-
+    
+    {:else if component.__component === 'molecules.hero-banner'}
+      <HeroBanner
+        title={component.Title}
+        image={component.image}
+        imageBW={component.black_white}
+        focalPoint={[component.focal_point_x + '%', component.focal_point_y + '%']}
+        colorTheme={component.color_theme} />
+    
     {:else if component.__component === 'molecules.call-to-action'}
       <CallToAction
         action={component.action}
         body={component.body}
         colorTheme={component.color_theme}
         title={component.title} />
-
+      
     {:else if component.__component === 'organisms.card-block'}
       <CardBlock
         title={component.title}
         body={component.description}
         cards={component.cards} />
-
+      
     {:else if component.__component === 'molecules.map-block'}
       <MapBlock
         title={component.title}
@@ -36,7 +45,7 @@
         lat={component.latitude}
         lon={component.longitude}
         zoom={component.zoom_level} />
-
+      
     {:else if component.__component === 'molecules.text-block'}
       <TextBlock
         actions={component.actions}
@@ -45,14 +54,14 @@
         title={component.title}
         pretitle={component.pre_title}
         titleLevel={component.title_level} />
-
+        
     {:else if component.__component === 'molecules.social-links'}
       <SocialLinks
         title={component.title}
         titleLevel={component.title_level}
         links={component.Icons}
         colorTheme={component.color_theme} />
-
+        
     {:else if component.__component === 'molecules.story-block'}
       <StoryBlock
         title={component.title}
@@ -65,7 +74,7 @@
         imagePos={component.image_position}
         imageFilter={component.use_filter}
         filterPos={[component.filter_position_x + '%', component.filter_position_y + '%']} />
-
+         
     {:else if component.__component === 'molecules.video-block'}
       <VideoBlock
         title={component.title}
