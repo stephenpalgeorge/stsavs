@@ -4,6 +4,7 @@
   import snarkdown from 'snarkdown';
   import BlockHeader from '$atoms/BlockHeader.svelte';
 
+  export let id = "";
   export let title = "";
   export let description = "";
   export let lat = 51.420740;
@@ -77,7 +78,7 @@
   }
 </style>
 
-<section class="map-block">
+<section class="map-block" id="map-block--{id}">
   <div class="mask"></div>
   <div>
     <BlockHeader title={title} description={description} />

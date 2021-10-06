@@ -2,6 +2,7 @@
   import Image from '$atoms/Image.svelte';
 
   export let title = "";
+  export let id = "";
   export let image = "";
   export let focalPoint = ['50%', '50%'];
   export let imageBW = true;
@@ -120,7 +121,7 @@
   }
 </style>
 
-<section class="hero-banner theme--{colorTheme}" role="banner">
+<section class="hero-banner theme--{colorTheme}" role="banner" id="hero-banner--{id}">
   <div class="background">
     <Image
       filePath={image.url}

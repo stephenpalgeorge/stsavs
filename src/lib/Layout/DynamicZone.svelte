@@ -15,10 +15,11 @@
 {#if components.length > 0}
   {#each components as component}
     {#if component.__component === 'molecules.gallery-banner' }
-      <GalleryBanner bannerId={component.banner._id} colorTheme={component.color_theme} />
+      <GalleryBanner bannerId={component.banner._id} colorTheme={component.color_theme} id={component.id} />
     
     {:else if component.__component === 'molecules.hero-banner'}
       <HeroBanner
+        id={component.id}
         title={component.Title}
         image={component.image}
         imageBW={component.black_white}
@@ -27,6 +28,7 @@
     
     {:else if component.__component === 'molecules.call-to-action'}
       <CallToAction
+        id={component.id}
         action={component.action}
         body={component.body}
         colorTheme={component.color_theme}
@@ -34,12 +36,14 @@
       
     {:else if component.__component === 'organisms.card-block'}
       <CardBlock
+        id={component.id}
         title={component.title}
         body={component.description}
         cards={component.cards} />
       
     {:else if component.__component === 'molecules.map-block'}
       <MapBlock
+        id={component.id}
         title={component.title}
         description={component.body}
         lat={component.latitude}
@@ -48,6 +52,7 @@
       
     {:else if component.__component === 'molecules.text-block'}
       <TextBlock
+        id={component.id}
         actions={component.actions}
         body={component.body}
         colorTheme={component.color_theme}
@@ -57,6 +62,7 @@
         
     {:else if component.__component === 'molecules.social-links'}
       <SocialLinks
+        id={component.id}
         title={component.title}
         titleLevel={component.title_level}
         links={component.Icons}
@@ -64,6 +70,7 @@
         
     {:else if component.__component === 'molecules.story-block'}
       <StoryBlock
+        id={component.id}
         title={component.title}
         titleLevel={component.title_level}
         quoteText={component.quote_text}
@@ -77,6 +84,7 @@
          
     {:else if component.__component === 'molecules.video-block'}
       <VideoBlock
+        id={component.id}
         title={component.title}
         body={component.body}
         videoId={component.video_id} />
