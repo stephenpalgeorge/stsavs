@@ -85,7 +85,7 @@
 
 {#if width > 767}
   <Navbar {menu} />
-{:else}
+{:else if width > 0}
   <NavPanel {menu} />
 {/if}
 <slot />

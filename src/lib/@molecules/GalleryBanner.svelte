@@ -5,6 +5,7 @@
 
   export let bannerId = "";
   export let colorTheme = "light";
+  export let id = "";
 
   async function getBanner(id) {
     const res = await fetch(`${base}/banners/${id}`);
@@ -31,7 +32,7 @@
   }
 </style>
 
-<section class="gallery-banner" role="banner">
+<section class="gallery-banner" role="banner" id="gallery-banner--{id}">
   <div class="cards-container">
     {#await banner}
       <p>Loading banner...</p>

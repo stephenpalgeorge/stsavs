@@ -34,10 +34,10 @@
   @use '../scss/variables' as var;
   li {
     &:not(:first-of-type) {
-      margin-top: var.$vertical-flow * .75;
+      margin-top: var.$vertical-flow * .5;
     }
     &:last-of-type {
-      margin-bottom: var.$vertical-flow * .75;
+      margin-bottom: var.$vertical-flow * .5;
     }
 
     &.active {

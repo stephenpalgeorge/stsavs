@@ -4,6 +4,7 @@
   
   export let title = "";
   export let body = "";
+  export let id = "";
   export let action = {};
   export let colorTheme = "red";
 </script>
@@ -95,7 +96,7 @@
 
 </style>
 
-<section class="call-to-action theme--{colorTheme}">
+<section class="call-to-action theme--{colorTheme}" id="call-to-action--{id}">
   <div>
     <div class="mask"><div></div></div>
     <div class="text-content">

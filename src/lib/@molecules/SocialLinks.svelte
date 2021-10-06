@@ -1,11 +1,33 @@
 <script>
+  import { onMount } from 'svelte';
   import IconLink from "$atoms/IconLink.svelte";
+
+  export let id = "";
   export let title = "";
   export let titleLevel = "h2";
   export let links = [];
   export let colorTheme = "dark";
 
   let linksTitle = `<${titleLevel}>${title}</${titleLevel}>`;
+
+  let linksRef;
+  onMount(() => {
+    const links = Array.from(document.querySelectorAll(`#social-links--${id} .links a`));
+    const options = { threshold: .5 };
+    const callback = (entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          links.forEach((link, i) => {
+            link.style.opacity = "1";
+            link.style.transitionDelay = `${(links.length * .2) - (i * .2)}s`;
+          });
+        }
+      });
+    }
+
+    const observer = new IntersectionObserver(callback, options);
+    observer.observe(linksRef);
+  });
 </script>
 
 <style lang="scss">
@@ -18,7 +40,12 @@
       @include m.layout-break(sm) { margin-bottom: var.$vertical-flow * .25; }
     }
 
-    .links .icon-link + .icon-link {
+    .social-links .links .icon-link {
+      opacity: 0;
+      transition: opacity .3s ease-out;
+    }
+
+    .social-links .links .icon-link + .icon-link {
       margin-left: 2rem;
     }
 
@@ -61,7 +88,7 @@
   }
 </style>
 
-<section class="social-links theme--{colorTheme}">
+<section class="social-links theme--{colorTheme}" id="social-links--{id}">
   <div>
     <!-- title -->
     {#if title && title.length > 0}
@@ -70,7 +97,7 @@
 
     <!-- links -->
     {#if links && links.length > 0}
-      <div class="links">
+      <div class="links" bind:this={linksRef}>
         {#each links as link}
           <IconLink
             url={link.url}

@@ -1,8 +1,11 @@
 <script>
+  import { onMount } from 'svelte';
+  import { browser } from '$app/env';
   import snarkdown from 'snarkdown';
   import ButtonLink from '$atoms/ButtonLink.svelte';
   import Image from '$atoms/Image.svelte';
 
+  export let id = "";
   export let title = "";
   export let titleLevel = "h2";
   export let quoteText = "";
@@ -16,6 +19,27 @@
 
   const blockTitle = `<${titleLevel}>${title}</${titleLevel}>`;
   const imagePosClass = `image--${imagePos}`;
+
+  let width;
+  if (browser) width = window.innerWidth;
+  else width = 0;
+
+  let storyBlockRef;
+  onMount(() => {
+    const link = document.querySelector(`#story-block--${id} .actions`);
+    const options = { threshold: .75 };
+    const callback = (entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          link.style.opacity = "1";
+          link.style.transform = "translateX(0)";
+        }
+      });
+    }
+
+    const observer = new IntersectionObserver(callback, options);
+    observer.observe(storyBlockRef);
+  });
 </script>
 
 <style lang="scss">
@@ -30,12 +54,27 @@
         text-transform: uppercase;
       }
 
+      .actions {
+        opacity: 0;
+        transform: translateX(1rem);
+        transition: opacity .5s ease-out, transform .5s ease-out;
+
+        a {
+          text-align: center;
+        }
+      }
+
       .image-container {
         width: 18rem;
         height: 18rem;
 
         @include m.layout-break(sm) {
           margin: 0 auto;
+          width: 100%;
+        }
+
+        .mask--circle {
+          display: none;
         }
       }
 
@@ -117,13 +156,15 @@
   }
 </style>
 
-<section class="story-block {imagePosClass}">
+<svelte:window bind:innerWidth={width} />
+
+<section class="story-block {imagePosClass}" id="story-block--{id}" bind:this={storyBlockRef}>
   <div>
-    {#if imagePos === 'left'}
-    <Image
-    filePath={image.url}
-    altText={image.alternative_text}
-    filterPosition={filterPos} />
+    {#if imagePos === 'left' || width < 576}
+      <Image
+      filePath={image.url}
+      altText={image.alternative_text}
+      filterPosition={filterPos} />
     {/if}
     
     <div class="text-content">
@@ -155,7 +196,7 @@
       {/if}
     </div>
 
-    {#if imagePos === 'right'}
+    {#if imagePos === 'right' && width >= 576}
       <Image
         filePath={image.url}
         altText={image.alternative_text}
