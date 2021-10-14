@@ -26,7 +26,7 @@
           buttons.forEach((button, i) => {
             button.style.transitionDelay = `${i * .25}s`;
             button.style.opacity = "1";
-          })
+          });
         }
       });
     }
@@ -51,7 +51,7 @@
       }
     }
 
-    h1 {
+    h1, h2, h3 {
       position: relative;
     }
   }
@@ -77,7 +77,9 @@
   }
 
   :global {
-    .text-block h1 span {
+    .text-block h1 span,
+    .text-block h2 span,
+    .text-block h3 span {
       font-family: var.$font-family--cursive;
       position: absolute;
       transform: translateY(-100%);

@@ -78,14 +78,16 @@
         }
       }
 
-      @include m.layout-break(sm) {
+      @include m.layout-break(sm) {  
+        .actions a {
+          width: 100%;
+        }
+      }
+
+      @include m.layout-break(md) {
         blockquote::before {
           left: 0;
           top: -6rem;
-        }
-  
-        .actions a {
-          width: 100%;
         }
       }
     }

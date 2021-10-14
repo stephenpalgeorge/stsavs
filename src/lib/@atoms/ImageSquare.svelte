@@ -21,11 +21,8 @@
       width: var.$banner-square-side * 2;
       padding-bottom: var.$banner-square-side * 2;
     }
-    
-    transition: box-shadow .2s ease;
-    &:hover {
-      box-shadow: var.$shadow-base;
-    }
+    border: .125rem solid var.$color-light;
+    box-shadow: var.$shadow-base;
   }
 
   .image-container {

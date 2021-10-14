@@ -1,8 +1,10 @@
 <script>
   import CallToAction from '$molecules/CallToAction.svelte';
   import CardBlock from '$organisms/CardBlock.svelte';
+  import FrameBanner from '$molecules/FrameBanner.svelte';
   import GalleryBanner from '$molecules/GalleryBanner.svelte';
   import HeroBanner from '$molecules/HeroBanner.svelte';
+  import ImageRow from '$molecules/ImageRow.svelte';
   import MapBlock from '$molecules/MapBlock.svelte';
   import SocialLinks from "$molecules/SocialLinks.svelte";
   import StoryBlock from '$molecules/StoryBlock.svelte';
@@ -14,8 +16,18 @@
 
 {#if components.length > 0}
   {#each components as component}
-    {#if component.__component === 'molecules.gallery-banner' }
-      <GalleryBanner bannerId={component.banner._id} colorTheme={component.color_theme} id={component.id} />
+    {#if component.__component === 'molecules.frame-banner'}
+      <FrameBanner
+        id={component.id}
+        title={component.title}
+        buttons={component.buttons}
+        image={component.media} />
+
+    {:else if component.__component === 'molecules.gallery-banner' }
+      <GalleryBanner
+        bannerId={component.banner._id}
+        colorTheme={component.color_theme}
+        id={component.id} />
     
     {:else if component.__component === 'molecules.hero-banner'}
       <HeroBanner
@@ -40,6 +52,14 @@
         title={component.title}
         body={component.description}
         cards={component.cards} />
+    
+    {:else if component.__component === 'molecules.image-row'}
+      <ImageRow
+        id={component.id}
+        title={component.title}
+        description={component.description}
+        images={component.images}
+        colorTheme={component.color_theme} />
       
     {:else if component.__component === 'molecules.map-block'}
       <MapBlock
