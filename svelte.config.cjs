@@ -12,6 +12,8 @@ module.exports = {
       resolve: {
         alias: {
           $atoms: path.resolve('./src/lib/@atoms'),
+          $banners: path.resolve('./src/lib/@banners'),
+          $media: path.resolve('./src/lib/@media'),
           $molecules: path.resolve('./src/lib/@molecules'),
           $organisms: path.resolve('./src/lib/@organisms'),
         }

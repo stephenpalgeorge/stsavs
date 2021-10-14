@@ -3,15 +3,18 @@
   import BlockHeader from '$atoms/BlockHeader.svelte';
   import ImageCaption from '$atoms/ImageCaption.svelte';
 
+  export let anchorId = "";
   export let id = "";
   export let title = "";
   export let description = "";
   export let images = [];
   export let colorTheme = "purple";
 
+  let uid = anchorId.length > 0 ? anchorId : `image-row--${id}`;
+
   let imageRowRef;
   onMount(() => {
-    const imageArray = Array.from(document.querySelectorAll(`#image-row--${id} .images img`));
+    const imageArray = Array.from(document.querySelectorAll(`#${uid} .images img`));
     const options = { threshold: .4 };
     const callback = (entries, observer) => {
       entries.forEach(entry => {
@@ -94,7 +97,7 @@
   }
 </style>
 
-<section class="image-row color-theme--{colorTheme}" id="image-row--{id}" bind:this={imageRowRef}>
+<section class="image-row color-theme--{colorTheme}" id={uid} bind:this={imageRowRef}>
   <div class="mask"></div>
   <div>
     {#if title.length > 0 || description.length > 0}

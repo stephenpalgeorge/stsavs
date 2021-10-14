@@ -40,6 +40,7 @@
         transition: background 0.2s ease, color 0.2s ease;
         &:hover {
           text-decoration: underline;
+          text-underline-offset: .25em;
           background-color: var.$color-main--fade;
           color: var.$color-dark;
         }

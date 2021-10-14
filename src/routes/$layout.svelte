@@ -47,6 +47,10 @@
       color: var.$color-main--accent;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     * {
       padding: 0;
       margin: 0;

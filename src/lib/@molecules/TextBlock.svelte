@@ -165,7 +165,7 @@
     {/if}
 
     {#if body && body.length > 0}
-      <p class:top-space={titleLevel === 'h1'}>
+      <p class:top-space={['h1', 'h2', 'h3'].includes(titleLevel)}>
         {@html snarkdown(body)}
       </p>
     {/if}
