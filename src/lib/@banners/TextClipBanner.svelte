@@ -33,6 +33,9 @@
       -webkit-background-clip: text;
       background-size: cover;
       color: transparent;
+      @include m.layout-break(sm) {
+        font-size: 6rem;
+      }
     }
 
     .buttons {
@@ -43,10 +46,19 @@
   :global {
     .text-clip-banner .buttons a {
       padding: 1rem 1.5rem;
-
       + a {
         margin-left: 2rem;
       }
+
+      @include m.layout-break(sm) {
+        width: 100%;
+        text-align: center;
+        + a {
+          margin-left: 0;
+          margin-top: var.$vertical-flow * .5;
+        }
+      }
+
     }
   }
 </style>

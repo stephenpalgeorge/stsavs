@@ -4,15 +4,17 @@
   import BlockHeader from '$atoms/BlockHeader.svelte';
   import Card from '$molecules/Card.svelte';
 
+  export let anchorId = "";
   export let id = "";
   export let title = "";
   export let body = "";
   export let cards = [];
 
+  const uid = anchorId.length > 0 ? anchorId : `card-block--${id}`;
   let cardsRef;
   onMount(() => {
-    const threshold = window.innerWidth <= 575 ? .5 : .75;
-    const cards = Array.from(document.querySelectorAll(`#card-block--${id} .cards-container .card`));
+    const threshold = window.innerWidth <= 575 ? .2 : .75;
+    const cards = Array.from(document.querySelectorAll(`#${uid} .cards-container .card`));
     const options = { threshold };
     const callback = (entries, observer) => {
       entries.forEach(entry => {
@@ -42,10 +44,18 @@
     }
 
     .cards-container {
-      display: flex;
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
       margin-top: var.$vertical-flow;
-      @include m.layout-break(sm) {
-        flex-direction: column;
+      
+      @supports not (display: grid) {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        @include m.layout-break(sm) {
+          flex-direction: column;
+        }
       }
     }
   }
@@ -53,6 +63,11 @@
   :global {
     .card-block .cards-container {
       .card {
+        margin-bottom: var.$vertical-flow;
+        @include m.layout-break(sm) {
+          margin-bottom: var.$vertical-flow * .5;
+        }
+        flex: 1 0 30%;
         opacity: 0;
         transform: translateX(-1rem);
         transition: opacity .4s ease-out, transform .4s ease-out;
@@ -62,7 +77,7 @@
       }
 
       > * + * {
-        margin-left: var.$horizontal-flow;
+        // margin-left: var.$horizontal-flow;
         width: 100%;
 
         @include m.layout-break(sm) {
@@ -74,7 +89,7 @@
   }
 </style>
 
-<section class="card-block" id="card-block--{id}">
+<section class="card-block" id={uid}>
   <div>
     <BlockHeader title={title} description={body} />
     {#if cards.length > 0}
@@ -85,8 +100,8 @@
             title={card.title}
             heading={card.heading}
             body={card.body}
-            buttonLabel={card.link.label}
-            buttonUrl={card.link.url} buttonStyle={card.link.style} />
+            buttonLabel={card.link?.label}
+            buttonUrl={card.link?.url} buttonStyle={card.link.style} />
         {/each}
       </div>
     {/if}

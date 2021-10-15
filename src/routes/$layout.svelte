@@ -49,6 +49,9 @@
 
     html {
       scroll-behavior: smooth;
+      *[id] {
+        scroll-margin-top: var.$nav-height;
+      }
     }
 
     * {

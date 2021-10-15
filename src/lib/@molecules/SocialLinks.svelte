@@ -2,17 +2,19 @@
   import { onMount } from 'svelte';
   import IconLink from "$atoms/IconLink.svelte";
 
+  export let anchorId = "";
   export let id = "";
   export let title = "";
   export let titleLevel = "h2";
   export let links = [];
   export let colorTheme = "dark";
 
+  let uid = anchorId.length > 0 ? anchorId : `social-links--${id}`;
   let linksTitle = `<${titleLevel}>${title}</${titleLevel}>`;
 
   let linksRef;
   onMount(() => {
-    const links = Array.from(document.querySelectorAll(`#social-links--${id} .links a`));
+    const links = Array.from(document.querySelectorAll(`#${uid} .links a`));
     const options = { threshold: .5 };
     const callback = (entries, observer) => {
       entries.forEach(entry => {
@@ -88,7 +90,7 @@
   }
 </style>
 
-<section class="social-links theme--{colorTheme}" id="social-links--{id}">
+<section class="social-links theme--{colorTheme}" id={uid}>
   <div>
     <!-- title -->
     {#if title && title.length > 0}

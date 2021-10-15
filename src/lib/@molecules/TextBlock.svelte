@@ -3,6 +3,7 @@
   import snarkdown from "snarkdown";
   import ButtonLink from "$atoms/ButtonLink.svelte";
 
+  export let anchorId = "";
   export let id = "";
   export let actions = [];
   export let body = "";
@@ -11,6 +12,7 @@
   export let pretitle = "";
   export let titleLevel = "h1";
 
+  const uid = anchorId.length > 0 ? anchorId : `text-block--${id}`;
   const blockTitle = `<${titleLevel}>${
     pretitle.length > 0 ? `<span>${pretitle}</span>` : ""
   }${title}</${titleLevel}>`;
@@ -18,7 +20,7 @@
   
   let actionsRef;
   onMount(() => {
-    const buttons = Array.from(document.querySelectorAll(`#text-block--${id} .actions a`));
+    const buttons = Array.from(document.querySelectorAll(`#${uid} .actions a`));
     const options = { threshold: .25 };
     const callback = (entries, observer) => {
       entries.forEach(entry => {
@@ -156,7 +158,7 @@
   }
 </style>
 
-<section class="text-block theme--{colorTheme}" id="text-block--{id}">
+<section class="text-block theme--{colorTheme}" id={uid}>
   <div class="mask" />
   <div>
     <!-- text content -->
