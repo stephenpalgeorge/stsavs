@@ -53,6 +53,7 @@
         cursor: pointer;
         background-color: var.$color-main--fade;
         text-decoration: underline;
+        text-underline-offset: .25em;
       }
     }
   
@@ -60,6 +61,7 @@
       background-color: var.$color-main;
       color: var.$color-light;
       text-decoration: underline;
+      text-underline-offset: .25em;
     }
   }
 </style>

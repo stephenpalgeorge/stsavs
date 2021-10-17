@@ -4,12 +4,15 @@
   import snarkdown from 'snarkdown';
   import BlockHeader from '$atoms/BlockHeader.svelte';
 
+  export let anchorId = "";
   export let id = "";
   export let title = "";
   export let description = "";
   export let lat = 51.420740;
   export let lon = -0.419330;
   export let zoom = 14;
+
+  let uid = anchorId.length > 0 ? anchorId : `map-block--${id}`;
   
   onMount(async () => {
     if (browser) {
@@ -78,7 +81,7 @@
   }
 </style>
 
-<section class="map-block" id="map-block--{id}">
+<section class="map-block" id={uid}>
   <div class="mask"></div>
   <div>
     <BlockHeader title={title} description={description} />

@@ -31,6 +31,7 @@
     
     &:hover {
       text-decoration: underline;
+      text-underline-offset: .25em;
       &::after, &::before {
         top: 0;
         left: 0;

@@ -2,11 +2,14 @@
   import snarkdown from 'snarkdown';
   import ButtonLink from '$atoms/ButtonLink.svelte';
   
+  export let anchorId = "";
   export let title = "";
   export let body = "";
   export let id = "";
   export let action = {};
   export let colorTheme = "red";
+
+  let uid = anchorId.length > 0 ? anchorId : `call-to-action--${id}`;
 </script>
 
 <style lang="scss">
@@ -96,7 +99,7 @@
 
 </style>
 
-<section class="call-to-action theme--{colorTheme}" id="call-to-action--{id}">
+<section class="call-to-action theme--{colorTheme}" id={uid}>
   <div>
     <div class="mask"><div></div></div>
     <div class="text-content">

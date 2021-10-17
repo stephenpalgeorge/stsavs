@@ -2,6 +2,9 @@
   import Metatags from "$lib/Data/Metatags.svelte";
   import { base } from "$lib/config.js";
 
+  /**
+	 * @type {import('@sveltejs/kit').Load}
+	 */
   export async function load() {
     const url = `${base}/pages`;
     const res = await fetch(url);

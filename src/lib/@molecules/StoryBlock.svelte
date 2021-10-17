@@ -5,6 +5,7 @@
   import ButtonLink from '$atoms/ButtonLink.svelte';
   import Image from '$atoms/Image.svelte';
 
+  export let anchorId = "";
   export let id = "";
   export let title = "";
   export let titleLevel = "h2";
@@ -17,6 +18,7 @@
   export let imageFilter = false;
   export let filterPos = ['50%', '50%'];
 
+  const uid = anchorId.length > 0 ? anchorId : `story-block--${id}`;
   const blockTitle = `<${titleLevel}>${title}</${titleLevel}>`;
   const imagePosClass = `image--${imagePos}`;
 
@@ -26,7 +28,7 @@
 
   let storyBlockRef;
   onMount(() => {
-    const link = document.querySelector(`#story-block--${id} .actions`);
+    const link = document.querySelector(`#${uid} .actions`);
     const options = { threshold: .75 };
     const callback = (entries, observer) => {
       entries.forEach(entry => {
@@ -78,14 +80,16 @@
         }
       }
 
-      @include m.layout-break(sm) {
+      @include m.layout-break(sm) {  
+        .actions a {
+          width: 100%;
+        }
+      }
+
+      @include m.layout-break(md) {
         blockquote::before {
           left: 0;
           top: -6rem;
-        }
-  
-        .actions a {
-          width: 100%;
         }
       }
     }
@@ -158,7 +162,7 @@
 
 <svelte:window bind:innerWidth={width} />
 
-<section class="story-block {imagePosClass}" id="story-block--{id}" bind:this={storyBlockRef}>
+<section class="story-block {imagePosClass}" id={uid} bind:this={storyBlockRef}>
   <div>
     {#if imagePos === 'left' || width < 576}
       <Image

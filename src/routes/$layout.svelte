@@ -47,6 +47,13 @@
       color: var.$color-main--accent;
     }
 
+    html {
+      scroll-behavior: smooth;
+      *[id] {
+        scroll-margin-top: var.$nav-height;
+      }
+    }
+
     * {
       padding: 0;
       margin: 0;
