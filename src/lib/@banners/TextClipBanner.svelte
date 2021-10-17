@@ -1,10 +1,30 @@
 <script>
+  import { onMount } from 'svelte';
   import ButtonLink from '$atoms/ButtonLink.svelte';
   import { base } from "$lib/config.js";
 
   export let title = "";
   export let image = {};
   export let buttons = [];
+
+  let bannerRef;
+  onMount(() => {
+    const btns = Array.from(document.querySelectorAll('.text-clip-banner a'));
+    if (btns.length > 0) {
+      const options = { threshold: .8 };
+      const callback = (entries, observer) => {
+        entries.forEach(entry => {
+          btns.forEach((btn, i) => {
+            btn.style.opacity = '1';
+            btn.style.transitionDelay = `${i * .3}s`;
+          });
+        });
+      }
+
+      const observer = new IntersectionObserver(callback, options);
+      observer.observe(bannerRef);
+    }
+  });
 </script>
 
 <style lang="scss">
@@ -45,6 +65,8 @@
 
   :global {
     .text-clip-banner .buttons a {
+      opacity: 0;
+      transition: opacity .4s ease-out;
       padding: 1rem 1.5rem;
       + a {
         margin-left: 2rem;
@@ -63,7 +85,7 @@
   }
 </style>
 
-<section class="text-clip-banner">
+<section bind:this={bannerRef} class="text-clip-banner">
   <div>
     <h1 style="background-image: url({base + image.url});">{title}</h1>
     
