@@ -17,6 +17,12 @@
       margin-top: var.$vertical-flow * .25;
     }
   }
+
+  :global {
+    .block-header a {
+      color: var.$color-secondary;
+    }
+  }
 </style>
 
 {#if title.length > 0 || description.length > 0}

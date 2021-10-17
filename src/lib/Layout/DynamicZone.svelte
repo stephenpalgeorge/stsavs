@@ -6,6 +6,7 @@
   import TextClipBanner from '$banners/TextClipBanner.svelte';
   // MEDIA
   import ImageRow from '$media/ImageRow.svelte';
+  import PhotoGallery from '$media/PhotoGallery.svelte';
   import VideoBlock from '$media/VideoBlock.svelte';
   // ATOMIC DESIGN
   import CallToAction from '$molecules/CallToAction.svelte';
@@ -77,6 +78,14 @@
         lat={component.latitude}
         lon={component.longitude}
         zoom={component.zoom_level} />
+
+    {:else if component.__component === 'media.photo-gallery'}
+      <PhotoGallery 
+        anchorId={component.anchor_id}
+        id={component.id}
+        title={component.title}
+        description={component.description}
+        images={component.images} />
         
     {:else if component.__component === 'molecules.text-block'}
       <TextBlock
