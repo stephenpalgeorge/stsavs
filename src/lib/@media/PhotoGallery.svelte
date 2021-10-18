@@ -112,6 +112,9 @@
       position: relative;
       // this height represents the ratio of 16:9 when the container is 720px.
       height: 25.3125rem;
+      @include m.layout-break(sm) {
+        height: 70vw;
+      }
       img {
         position: absolute;
         max-width: 100%;
@@ -120,11 +123,11 @@
         border: .25rem solid var.$color-light;
         box-shadow: var.$shadow-base;
         z-index: -1;
-
+        
         &.current {
           transition: all $transition-length ease-out;
         }
-
+        
         &.current {
           opacity: 1;
           top: 50%;
@@ -133,28 +136,51 @@
           max-width: 75% !important;
           box-shadow: 0 0 1rem .5rem rgba(0, 0, 0, .24);
           z-index: 2;
+          @include m.layout-break(sm) {
+            top: initial;
+            left: initial;
+            transform: none;
+            max-width: 100% !important;
+          }
+          @include m.layout-break(md) {
+            max-width: 80%;
+          }
         }
         
-        &.previous, &.next {
-          opacity: 1;
-          max-width: 35%;
-          transition: opacity $transition-length ease-out;
-          transition-delay: $transition-length * .66;
-          z-index: 1;
-          cursor: pointer;
+        @media screen and (min-width: 768px) {
+          &.previous {
+            top: 0;
+            left: 0;
+            transform: translate(10%, -20%);
+          }
+          
+          &.next {
+            top: initial;
+            bottom: 0;
+            left: initial;
+            right: 0;
+            transform: translate(-10%, 20%);
+          }
+          &.previous, &.next {
+            opacity: 1;
+            max-width: 20%;
+            transition: opacity $transition-length ease-out;
+            transition-delay: $transition-length * .66;
+            z-index: 1;
+            cursor: pointer;
+          }
         }
-        &.previous {
-          top: 0;
-          left: 0;
-          transform: translate(-20%, -20%);
-        }
-        
-        &.next {
-          top: initial;
-          bottom: 0;
-          left: initial;
-          right: 0;
-          transform: translate(20%, 20%);
+        @media screen and (min-width: 992px) {
+          &.previous {
+            transform: translate(-20%, -20%);
+          }
+          &.next {
+            transform: translate(20%, 20%);
+          }
+
+          &.previous, &.next {
+            max-width: 35%;
+          }
         }
       }
     }
