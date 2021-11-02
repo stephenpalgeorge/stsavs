@@ -15,10 +15,14 @@
 
   .hero-banner {
     position: relative;
+
+    .mask {
+      display: none;
+    }
     
     div.background {
-      height: 60vh;
-      max-height: 24rem;
+      height: 80vh;
+      max-height: 40rem;
 
       @include m.layout-break(sm) {
         max-height: 18rem;
@@ -36,12 +40,13 @@
       h1 {
         position: relative;
         width: max-content;
-        background-color: var.$color-dark;
-        color: var.$color-light;
         padding: var.$vertical-flow * .25 var.$horizontal-flow * .75;
         transform: translateY(50%);
         border: .125rem solid var.$color-light;
         box-shadow: var.$shadow-base;
+        background-color: var.$color-dark;
+        color: var.$color-light;
+        text-transform: uppercase;
       }
 
       @include m.layout-break(sm) {
@@ -84,6 +89,20 @@
       }
     }
 
+    @media screen and (min-width: 1599px) {
+      .mask {
+        @include m.layout-mask;
+        display: block;
+        background: linear-gradient(
+          to right,
+          rgba(var.$color-main, 1),
+          rgba(var.$color-main, 1) 15%,
+          rgba(var.$color-main, 0) 50%,
+          rgba(var.$color-main, 1) 85%,
+          rgba(var.$color-main, 1) 100%
+        );
+      }
+    }
   }
 
   :global {
@@ -116,6 +135,10 @@
       .image-container {
         width: 100%;
         height: 100%;
+        @media screen and (min-width: 1599px) {
+          max-width: 75%;
+          margin: 0 auto;
+        }
       }
     }
   }
@@ -135,4 +158,5 @@
       <h1>{title}</h1>
     </div>
   {/if}
+  <div class="mask"></div>
 </section>

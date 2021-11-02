@@ -111,7 +111,8 @@
         title={component.title}
         titleLevel={component.title_level}
         links={component.Icons}
-        colorTheme={component.color_theme} />
+        colorTheme={component.color_theme}
+        isSticky={component.sticky} />
         
     {:else if component.__component === 'molecules.story-block'}
       <StoryBlock

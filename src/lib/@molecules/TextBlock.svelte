@@ -151,6 +151,15 @@
         background-color: #d76e6133;
       }
     }
+
+    &--light {
+      background-color: var.$color-light;
+      color: var.$color-dark;
+
+      .mask::before, .mask::after {
+        background-color: rgba(var.$color-main, .06);
+      }
+    }
   }
 
   [class*="theme"] * {

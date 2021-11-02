@@ -8,6 +8,7 @@
   export let titleLevel = "h2";
   export let links = [];
   export let colorTheme = "dark";
+  export let isSticky = false;
 
   let uid = anchorId.length > 0 ? anchorId : `social-links--${id}`;
   let linksTitle = `<${titleLevel}>${title}</${titleLevel}>`;
@@ -76,6 +77,14 @@
         align-items: flex-start;
       }
     }
+
+    &.sticky {
+      position: sticky;
+      top: var.$nav-height;
+      // we have to use ridiculous z-index values here
+      // because `leaflet` sets z-index: 1000 on some of its elements :(.
+      z-index: 1001;
+    }
   }
 
   .links {
@@ -90,7 +99,7 @@
   }
 </style>
 
-<section class="social-links theme--{colorTheme}" id={uid}>
+<section class="social-links theme--{colorTheme}" id={uid} class:sticky={isSticky}>
   <div>
     <!-- title -->
     {#if title && title.length > 0}
