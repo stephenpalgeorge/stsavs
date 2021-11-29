@@ -31,7 +31,7 @@
     top: 0;
     // we have to set a silly number here because `leaflet` sets
     // `z-index: 1000` on some of the elements :( ...
-    z-index: 1001;
+    z-index: 1002;
     width: 100%;
     height: var.$nav-height;
     background-color: var.$color-light;
