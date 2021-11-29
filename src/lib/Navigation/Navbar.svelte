@@ -42,7 +42,7 @@
     img {
       @include m.shapes-circle($size: 4.5rem);
 
-      margin-top: var.$nav-height / 2;
+      margin-top: var.$nav-height * .5;
       background-color: var.$color-light;
       border: 0.125rem solid var.$color-light;
       box-shadow: var.$shadow-base;

@@ -73,10 +73,12 @@
     border: .25rem solid var.$color-light;
   }
 
-  .map-block > div:not(.mask) {
-    @include m.layout-container;
-    > * + * {
-      margin-top: var.$vertical-flow * .5;
+  :global {
+    .map-block > div:not(.mask) {
+      @include m.layout-container;
+      > * + * {
+        margin-top: var.$vertical-flow * .5;
+      }
     }
   }
 </style>

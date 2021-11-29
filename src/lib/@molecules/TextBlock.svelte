@@ -52,10 +52,6 @@
         position: relative;
       }
     }
-
-    h1, h2, h3 {
-      position: relative;
-    }
   }
 
   .mask {
@@ -79,6 +75,9 @@
   }
 
   :global {
+    .text-block h1, h2, h3 {
+      position: relative;
+    }
     .text-block h1 span,
     .text-block h2 span,
     .text-block h3 span {

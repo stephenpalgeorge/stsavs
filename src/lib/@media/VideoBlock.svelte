@@ -21,10 +21,6 @@
       flex-direction: column;
       padding: var.$vertical-flow 0;
       @include m.layout-container;
-
-      > * + * {
-        margin-top: var.$vertical-flow * .5;
-      }
     }
 
     .video-wrapper {
@@ -49,6 +45,10 @@
         font-weight: 800;
         color: var.$color-secondary;
       }
+
+      > div > * + * {
+        margin-top: var.$vertical-flow * .5;
+      }
     }
   }
 </style>
@@ -62,6 +62,7 @@
         frameborder="0"
         width="100%"
         height="100%"
+        title="{title} (video)."
       ></iframe>
     </div>
   </div>

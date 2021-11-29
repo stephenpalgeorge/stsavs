@@ -1,11 +1,13 @@
-const path = require('path');
-const sveltePreprocess = require('svelte-preprocess');
+import path from 'path';
+import sveltePreprocess from 'svelte-preprocess';
+import adapter from '@sveltejs/adapter-node';
 
 const preprocess = sveltePreprocess();
 
 /** @type {import('@sveltejs/kit').Config} */
-module.exports = {
+export default {
   kit: {
+    adapter: adapter(),
     // hydrate the <div id="svelte"> element in src/app.html
     target: '#svelte',
     vite: {

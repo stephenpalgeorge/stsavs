@@ -32,7 +32,7 @@
   }
 </style>
 
-<section class="gallery-banner" role="banner" id="gallery-banner--{id}">
+<section class="gallery-banner color-theme--{colorTheme}" role="banner" id="gallery-banner--{id}">
   <div class="cards-container">
     {#await banner}
       <p>Loading banner...</p>
