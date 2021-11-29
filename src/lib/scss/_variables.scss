@@ -6,6 +6,25 @@ $content-width: 45rem;
 $vertical-flow: 3.5rem;
 $horizontal-flow: 2rem;
 
+// from 0 up to 575 pixels.
+$breakpoint-xs: 575px;
+// from 576 up to 767 pixels.
+$breakpoint-sm: 767px;
+// from 768 up to 991 pixels.
+$breakpoint-md: 991px;
+// from 992 up to 1200 pixels.
+$breakpoint-lg: 1200px;
+// from 1201 up to 1400 pixels.
+$breakpoint-xl: 1400px;
+
+$breakpoints: (
+  xs: $breakpoint-xs,
+  sm: $breakpoint-sm,
+  md: $breakpoint-md,
+  lg: $breakpoint-lg,
+  xl: $breakpoint-xl,
+);
+
 /* colours */
 $color-dark: rgb(34, 34, 34);
 $color-dark--fade: rgba($color-dark, .16);
@@ -18,7 +37,7 @@ $color-main--fade: rgba($color-main, 0.1);
 $color-secondary: rgba(205, 73, 56, 1);
 $color-secondary--accent: rgba(115, 208, 220, 1);
 $color-secondary--fade: rgba($color-secondary, 0.16);
-$color-secondary--accent--fade: rgba($color-secondary--fade, 0.32);
+$color-secondary--accent--fade: rgba($color-secondary--accent, 0.32);
 $color-alt: rgba(137, 138, 163, 1);
 
 /* fonts */
@@ -35,3 +54,4 @@ $shadow-base: 0 0.25rem 0.5rem 0 rgba(0, 0, 0, 0.24);
 
 /* content */
 $banner-square-side: 23%;
+$banner-card-gap: .75rem;

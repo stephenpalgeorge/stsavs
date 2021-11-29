@@ -5,6 +5,7 @@
   export let title = "";
   export let body = "";
   export let videoId = "";
+  export let id = "";
 </script>
 
 <style lang="scss">
@@ -52,7 +53,7 @@
   }
 </style>
 
-<section class="video-block">
+<section class="video-block" id="video-block--{id}">
   <div>
     <BlockHeader title={title} description={body} />
     <div class="video-wrapper">

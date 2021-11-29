@@ -18,13 +18,13 @@
     top: 0;
     // we have to set a silly number here because `leaflet` sets
     // `z-index: 1000` on some of the elements :( ...
-    z-index: 1001;
+    z-index: 1002;
     width: 100%;
     height: var.$nav-height;
     background-color: var.$color-light;
     box-shadow: var.$shadow-base;
   }
-
+  
   .contents {
     position: relative;
     width: 100%;
@@ -34,6 +34,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @media screen and (min-width: var.$breakpoint-sm + 1) and (max-width: var.$breakpoint-lg) {
+      max-width: 45rem;
+    }
 
     img {
       @include m.shapes-circle($size: 4.5rem);
@@ -67,6 +71,7 @@
         &:hover {
           background-color: var.$color-main--fade;
           text-decoration: underline;
+          text-underline-offset: .25em;
         }
       }
     }
@@ -75,6 +80,9 @@
   .menu-items li + li,
   .menu-items li:not(:first-of-type) {
     margin-left: 3rem;
+    @media screen and (min-width: var.$breakpoint-sm + 1) and (max-width: var.$breakpoint-lg) {
+      margin-left: 1.5rem;
+    }
   }
 </style>
 
@@ -109,5 +117,4 @@
       {/each}
     </ul>
   </div>
-
 </nav>

@@ -4,11 +4,15 @@
   import snarkdown from 'snarkdown';
   import BlockHeader from '$atoms/BlockHeader.svelte';
 
+  export let anchorId = "";
+  export let id = "";
   export let title = "";
   export let description = "";
   export let lat = 51.420740;
   export let lon = -0.419330;
   export let zoom = 14;
+
+  let uid = anchorId.length > 0 ? anchorId : `map-block--${id}`;
   
   onMount(async () => {
     if (browser) {
@@ -38,6 +42,8 @@
   .map-block {
     position: relative;
     padding: var.$vertical-flow 0;
+    border-top: 1px solid var.$color-dark--fade;
+    border-bottom: 1px solid var.$color-dark--fade;
 
     .mask {
       @include m.layout-mask;
@@ -49,6 +55,10 @@
         transform: translate(-40%, -25%);
         @include m.shapes-circle(14rem);
         background-color: var.$color-main--fade;
+
+        @include m.layout-break(lg) {
+          background-color: rgba(var.$color-main, .05);
+        }
       }
       &::before {
         @include m.shapes-circle(10rem);
@@ -71,7 +81,7 @@
   }
 </style>
 
-<section class="map-block">
+<section class="map-block" id={uid}>
   <div class="mask"></div>
   <div>
     <BlockHeader title={title} description={description} />

@@ -8,16 +8,21 @@
 
 <style lang="scss">
   @use '../scss/variables' as var;
+  @use '../scss/mixins' as m;
+
   .image-square {
     position: relative;
     width: var.$banner-square-side;
     padding-bottom: var.$banner-square-side;
     height: 0;
 
-    transition: box-shadow .2s ease;
-    &:hover {
-      box-shadow: var.$shadow-base;
+    @include m.layout-break(sm) {
+      margin: var.$banner-card-gap 0;
+      width: var.$banner-square-side * 2;
+      padding-bottom: var.$banner-square-side * 2;
     }
+    border: .125rem solid var.$color-light;
+    box-shadow: var.$shadow-base;
   }
 
   .image-container {

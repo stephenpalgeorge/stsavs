@@ -27,8 +27,11 @@
     font-weight: 900;
     text-decoration: none;
 
+    @include m.layout-break(sm) { padding: 1rem 1.5rem; }
+    
     &:hover {
       text-decoration: underline;
+      text-underline-offset: .25em;
       &::after, &::before {
         top: 0;
         left: 0;
@@ -55,8 +58,6 @@
       left: initial;
       right: -0.6rem;
     }
-
-    // @include m.btn-button-style;
   }
   @include m.btn-button-theme;
 </style>

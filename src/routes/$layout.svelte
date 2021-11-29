@@ -16,12 +16,19 @@
       error: new Error(`Could not load ${url}`)
     };
   }
+
 </script>
 
 <script>
+  import { browser } from '$app/env';
   import Navbar from "$lib/Navigation/Navbar.svelte";
+  import NavPanel from '$lib/Navigation/NavPanel.svelte';
   import Footer from '$lib/Layout/Footer.svelte';
   export let menu;
+  
+  let width;
+  if (browser) width = window.innerWidth;
+  else width = 0;
 </script>
 
 <style lang="scss">
@@ -29,9 +36,22 @@
   @use '../lib/scss/variables' as var;
 
   :global {
+    #svelte {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
     ::selection {
       background-color: rgba(76, 77, 98, 0.99);
       color: var.$color-main--accent;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      *[id] {
+        scroll-margin-top: var.$nav-height;
+      }
     }
 
     * {
@@ -68,6 +88,12 @@
   }
 </style>
 
-<Navbar {menu} />
+<svelte:window bind:innerWidth={width} />
+
+{#if width > 767}
+  <Navbar {menu} />
+{:else if width > 0}
+  <NavPanel {menu} />
+{/if}
 <slot />
 <Footer />
