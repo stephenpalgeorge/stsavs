@@ -80,6 +80,9 @@
 
     &.sticky {
       position: sticky;
+      @include m.layout-break(sm) {
+        position: relative;
+      }
       top: var.$nav-height;
       // we have to use ridiculous z-index values here
       // because `leaflet` sets z-index: 1000 on some of its elements :(.
